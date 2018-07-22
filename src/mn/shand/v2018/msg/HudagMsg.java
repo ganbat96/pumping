@@ -1,0 +1,103 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package mn.shand.v2018.msg;
+
+import java.util.Objects;
+import mn.shand.v201807.Log;
+
+/**
+ *
+ * @author Ganbat Bayarbaatar <ganbat96@gmail.com>
+ */
+public class HudagMsg extends ClientMsg {
+    private double temp;
+    private double rh;
+    private double p1;
+    private double inverter;
+    private String portb;
+
+    public void process(String[] message) {
+        try{
+        temp  = Integer.parseInt(message[1]);
+        rh    = Integer.parseInt(message[2]);
+        p1    = Integer.parseInt(message[3]);
+        inverter = Integer.parseInt(message[4]);
+        portb = message[9];
+        }catch(Exception ex){System.out.println("hudag2 array exception");}
+        //temp = temp * 150 / 256 - 74;
+        //temp = Math.ceil(temp);
+
+        //rh = rh * 125 / 256 - 25;
+        //rh = Math.ceil(rh);
+
+        p1 = p1 * 2 / 256 - 0.4;
+        p1 = Math.ceil(p1);
+    }
+
+    @Override
+    public Log changeLog(ClientMsg last) {
+        Log log = createLog();
+        log.setAction("changed");
+
+        HudagMsg hudag = (HudagMsg) last;
+        if (!Objects.equals(hudag.portb, this.portb)) {
+            log.setDescription("portb = " + portb);
+            return log;
+        }
+
+        return null;
+    }
+
+    @Override
+    public boolean isActive() {
+        return portb != null && !Objects.equals("?", portb);
+    }
+
+    @Override
+    public int getHPercentage(int code) {
+        return 0;
+    }
+
+    public void setTemp(double temp) {
+        this.temp = temp;
+    }
+
+    public double getTemp() {
+        return temp;
+    }
+
+    public void setRh(double rh) {
+        this.rh = rh;
+    }
+
+    public double getRh() {
+        return rh;
+    }
+
+    public void setP1(double p1) {
+        this.p1 = p1;
+    }
+
+    public double getP1() {
+        return p1;
+    }
+
+    public void setInverter(double inverter) {
+        this.inverter = inverter;
+    }
+
+    public double getInverter(){
+        return inverter;
+    }
+
+    public void setPortb(String portb) {
+        this.portb = portb;
+    }
+
+    public String getPortb() {
+        return portb;
+    }
+}
