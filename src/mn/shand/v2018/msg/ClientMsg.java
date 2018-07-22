@@ -90,7 +90,7 @@ public abstract class ClientMsg {
         int sign = cur > last ? 1 : -1;
         double newValue = last + maxChange * sign;
 
-        description.add(attr + ": " + cur + " -> " + newValue + " : last = " + last + " : diff = " + diff);
+        //description.add(attr + ": " + cur + " -> " + newValue + " : last = " + last + " : diff = " + diff);
         return newValue;
     }
 

@@ -78,7 +78,6 @@ public class MainForm extends javax.swing.JFrame {
         jP_de = new javax.swing.JPanel();
         jL_de_network = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jP_bb = new javax.swing.JPanel();
         jL_hudag2_network = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -103,6 +102,8 @@ public class MainForm extends javax.swing.JFrame {
         jL_de_tank = new javax.swing.JLabel();
         jL_de_pumps = new javax.swing.JLabel();
         jL_de_rh = new javax.swing.JLabel();
+        jL_1000_h1 = new javax.swing.JLabel();
+        jL_1000h2 = new javax.swing.JLabel();
         jL_1000_1 = new javax.swing.JLabel();
         jL_1000_2 = new javax.swing.JLabel();
         jL_de_temp = new javax.swing.JLabel();
@@ -118,7 +119,6 @@ public class MainForm extends javax.swing.JFrame {
         jP_gobi = new javax.swing.JPanel();
         jL_gb_network = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jP_zeeg = new javax.swing.JPanel();
         jL_zg_network = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -137,24 +137,23 @@ public class MainForm extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jL_hudag2_tolov = new javax.swing.JLabel();
-        jL_hudag3_tolov = new javax.swing.JLabel();
-        jL_de_tolov = new javax.swing.JLabel();
-        jL_gb_tolov = new javax.swing.JLabel();
-        jL_zg_tolov = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
         chkAutoMode = new javax.swing.JCheckBox();
         chkAutoModeSan1 = new javax.swing.JCheckBox();
         chkAutoModeSan2 = new javax.swing.JCheckBox();
-        jL_1000_h1 = new javax.swing.JLabel();
-        jL_1000h2 = new javax.swing.JLabel();
         jLAutoPilotStat = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ta_chat = new javax.swing.JTextArea();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jL_hudag2_tolov = new javax.swing.JLabel();
+        jL_zg_tolov = new javax.swing.JLabel();
+        jL_hudag3_tolov = new javax.swing.JLabel();
+        jL_de_tolov = new javax.swing.JLabel();
+        jL_gb_tolov = new javax.swing.JLabel();
         b_denjzalgah1 = new javax.swing.JButton();
         b_denjzalgah2 = new javax.swing.JButton();
         b_denjtaslah = new javax.swing.JButton();
@@ -217,301 +216,376 @@ public class MainForm extends javax.swing.JFrame {
         logTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("САЙНШАНД-УС ХАНГАМЖ-2018");
 
         jPanel1.setLayout(null);
 
         jP_de.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(102, 102, 102)));
         jP_de.setLayout(null);
 
-        jL_de_network.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/network_off.png"))); // NOI18N
+        jL_de_network.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/network_off_jijig.png"))); // NOI18N
         jP_de.add(jL_de_network);
-        jL_de_network.setBounds(10, 20, 75, 57);
+        jL_de_network.setBounds(10, 10, 50, 40);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("ДЭНЖ ӨРГӨХ СТАНЦ");
         jP_de.add(jLabel1);
-        jLabel1.setBounds(100, 40, 160, 17);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jP_de.add(jLabel3);
-        jLabel3.setBounds(120, 50, 100, 20);
+        jLabel1.setBounds(70, 20, 160, 17);
 
         jPanel1.add(jP_de);
-        jP_de.setBounds(780, 20, 280, 100);
+        jP_de.setBounds(790, 110, 240, 60);
 
         jP_bb.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(102, 102, 102)));
         jP_bb.setLayout(null);
 
         jL_hudag2_network.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/network_off_jijig.png"))); // NOI18N
         jP_bb.add(jL_hudag2_network);
-        jL_hudag2_network.setBounds(10, 20, 45, 34);
+        jL_hudag2_network.setBounds(10, 10, 45, 34);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("ГХ 2");
         jP_bb.add(jLabel11);
-        jLabel11.setBounds(70, 30, 40, 17);
+        jLabel11.setBounds(60, 20, 40, 17);
 
         jPanel1.add(jP_bb);
-        jP_bb.setBounds(30, 370, 120, 70);
+        jP_bb.setBounds(40, 350, 100, 50);
         jPanel1.add(jL_zg_pump2);
-        jL_zg_pump2.setBounds(360, 370, 60, 60);
+        jL_zg_pump2.setBounds(370, 340, 60, 60);
         jPanel1.add(jL_zg_pump1);
-        jL_zg_pump1.setBounds(360, 250, 60, 60);
+        jL_zg_pump1.setBounds(370, 220, 60, 60);
 
         jL_bb_temp.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_bb_temp.setForeground(new java.awt.Color(51, 255, 0));
         jL_bb_temp.setText("0");
         jPanel1.add(jL_bb_temp);
-        jL_bb_temp.setBounds(40, 460, 50, 20);
+        jL_bb_temp.setBounds(50, 420, 50, 20);
         jPanel1.add(jL_pump_2);
-        jL_pump_2.setBounds(40, 570, 40, 80);
+        jL_pump_2.setBounds(50, 530, 40, 80);
         jPanel1.add(jL_pump3);
-        jL_pump3.setBounds(145, 570, 40, 80);
+        jL_pump3.setBounds(150, 530, 50, 80);
 
         jL_bb_rh.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_bb_rh.setForeground(new java.awt.Color(255, 153, 0));
         jL_bb_rh.setText("0");
         jPanel1.add(jL_bb_rh);
-        jL_bb_rh.setBounds(40, 490, 50, 30);
+        jL_bb_rh.setBounds(50, 450, 50, 30);
 
         jL_cc_temp.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_cc_temp.setForeground(new java.awt.Color(102, 255, 0));
         jL_cc_temp.setText("0");
         jPanel1.add(jL_cc_temp);
-        jL_cc_temp.setBounds(200, 580, 60, 30);
+        jL_cc_temp.setBounds(210, 530, 60, 30);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/led-display.jpg"))); // NOI18N
         jLabel8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(30, 450, 99, 70);
+        jLabel8.setBounds(40, 410, 99, 70);
         jPanel1.add(jL_de_pump1);
-        jL_de_pump1.setBounds(950, 230, 60, 60);
+        jL_de_pump1.setBounds(960, 220, 60, 60);
 
         jL_underpump0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/under_pumps2_run_all.png"))); // NOI18N
         jPanel1.add(jL_underpump0);
-        jL_underpump0.setBounds(20, 240, 170, 610);
+        jL_underpump0.setBounds(30, 200, 170, 610);
         jPanel1.add(jL_gb_pump1);
-        jL_gb_pump1.setBounds(650, 250, 60, 60);
+        jL_gb_pump1.setBounds(660, 220, 60, 60);
 
         jL_zg_tank.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1_00.gif"))); // NOI18N
         jL_zg_tank.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jL_zg_tank);
-        jL_zg_tank.setBounds(190, 240, 120, 126);
+        jL_zg_tank.setBounds(200, 210, 120, 126);
 
         jL_zg_pumps.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/all1_pumps_stop.png"))); // NOI18N
         jPanel1.add(jL_zg_pumps);
-        jL_zg_pumps.setBounds(310, 240, 173, 190);
+        jL_zg_pumps.setBounds(320, 210, 173, 190);
 
         jL_gb_tank.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1_00.gif"))); // NOI18N
         jL_gb_tank.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jL_gb_tank);
-        jL_gb_tank.setBounds(480, 230, 120, 130);
+        jL_gb_tank.setBounds(490, 210, 120, 126);
         jPanel1.add(jL_gb_pump2);
-        jL_gb_pump2.setBounds(650, 370, 60, 60);
+        jL_gb_pump2.setBounds(660, 340, 60, 60);
 
         jL_gb_pumps.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/all1_pumps_stop.png"))); // NOI18N
         jPanel1.add(jL_gb_pumps);
-        jL_gb_pumps.setBounds(600, 240, 173, 190);
+        jL_gb_pumps.setBounds(610, 210, 173, 190);
 
         jL_de_h1.setBackground(new java.awt.Color(102, 255, 0));
         jL_de_h1.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_de_h1.setText("0");
         jL_de_h1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(153, 255, 51), new java.awt.Color(153, 255, 0), null, null));
         jPanel1.add(jL_de_h1);
-        jL_de_h1.setBounds(830, 200, 60, 30);
+        jL_de_h1.setBounds(840, 180, 60, 30);
         jPanel1.add(jL_de_pump2);
-        jL_de_pump2.setBounds(950, 350, 60, 60);
+        jL_de_pump2.setBounds(960, 340, 60, 60);
 
         jL_de_tank.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1_00.gif"))); // NOI18N
         jL_de_tank.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jL_de_tank);
-        jL_de_tank.setBounds(770, 230, 125, 126);
+        jL_de_tank.setBounds(780, 210, 125, 120);
 
         jL_de_pumps.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/all1_pumps0_stop.png"))); // NOI18N
         jPanel1.add(jL_de_pumps);
-        jL_de_pumps.setBounds(900, 150, 173, 280);
+        jL_de_pumps.setBounds(910, 140, 173, 280);
 
         jL_de_rh.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_de_rh.setForeground(new java.awt.Color(255, 153, 0));
         jL_de_rh.setText("0");
         jPanel1.add(jL_de_rh);
-        jL_de_rh.setBounds(810, 400, 80, 30);
+        jL_de_rh.setBounds(820, 370, 80, 30);
+
+        jL_1000_h1.setBackground(new java.awt.Color(153, 255, 51));
+        jL_1000_h1.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
+        jL_1000_h1.setText("0");
+        jL_1000_h1.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.white));
+        jPanel1.add(jL_1000_h1);
+        jL_1000_h1.setBounds(1140, 150, 80, 30);
+
+        jL_1000h2.setBackground(new java.awt.Color(102, 255, 0));
+        jL_1000h2.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
+        jL_1000h2.setText("0");
+        jL_1000h2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel1.add(jL_1000h2);
+        jL_1000h2.setBounds(1140, 410, 80, 30);
 
         jL_1000_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/00.gif"))); // NOI18N
         jL_1000_1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jL_1000_1);
-        jL_1000_1.setBounds(1080, 140, 183, 184);
+        jL_1000_1.setBounds(1080, 130, 183, 184);
 
         jL_1000_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/00.gif"))); // NOI18N
         jL_1000_2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jL_1000_2);
-        jL_1000_2.setBounds(1080, 400, 180, 190);
+        jL_1000_2.setBounds(1080, 390, 180, 190);
 
         jL_de_temp.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_de_temp.setForeground(new java.awt.Color(102, 255, 51));
         jL_de_temp.setText("0");
         jPanel1.add(jL_de_temp);
-        jL_de_temp.setBounds(810, 370, 60, 30);
+        jL_de_temp.setBounds(820, 340, 60, 30);
 
         jL_gb_temp.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         jL_gb_temp.setForeground(new java.awt.Color(0, 255, 0));
         jL_gb_temp.setText("0");
         jPanel1.add(jL_gb_temp);
-        jL_gb_temp.setBounds(510, 370, 70, 30);
+        jL_gb_temp.setBounds(520, 350, 70, 30);
 
         jL_zg_h1.setBackground(new java.awt.Color(102, 255, 0));
         jL_zg_h1.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_zg_h1.setText("0");
         jL_zg_h1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel1.add(jL_zg_h1);
-        jL_zg_h1.setBounds(240, 210, 60, 30);
+        jL_zg_h1.setBounds(240, 180, 60, 30);
 
         jL_zg_temp.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_zg_temp.setForeground(new java.awt.Color(0, 255, 0));
         jL_zg_temp.setText("0");
         jPanel1.add(jL_zg_temp);
-        jL_zg_temp.setBounds(220, 380, 70, 30);
+        jL_zg_temp.setBounds(230, 350, 70, 30);
 
         jL_zg_rh.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_zg_rh.setForeground(new java.awt.Color(255, 153, 0));
         jL_zg_rh.setText("0");
         jPanel1.add(jL_zg_rh);
-        jL_zg_rh.setBounds(220, 410, 70, 30);
+        jL_zg_rh.setBounds(230, 380, 70, 30);
 
         jL_gb_rh.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_gb_rh.setForeground(new java.awt.Color(255, 153, 0));
         jL_gb_rh.setText("0");
         jPanel1.add(jL_gb_rh);
-        jL_gb_rh.setBounds(510, 400, 50, 30);
+        jL_gb_rh.setBounds(520, 380, 50, 30);
 
         jL_LCD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/led-display.jpg"))); // NOI18N
         jPanel1.add(jL_LCD);
-        jL_LCD.setBounds(800, 360, 100, 80);
+        jL_LCD.setBounds(810, 330, 100, 80);
 
         jL_cc_rh.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_cc_rh.setForeground(new java.awt.Color(255, 153, 0));
         jL_cc_rh.setText("0");
         jPanel1.add(jL_cc_rh);
-        jL_cc_rh.setBounds(200, 610, 40, 32);
+        jL_cc_rh.setBounds(210, 560, 40, 32);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/led-display.jpg"))); // NOI18N
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(500, 360, 100, 80);
+        jLabel2.setBounds(510, 340, 100, 80);
 
         jL_gb_h1.setBackground(new java.awt.Color(102, 255, 0));
         jL_gb_h1.setFont(new java.awt.Font("Mon Crystal 2", 1, 24)); // NOI18N
         jL_gb_h1.setText("0");
         jL_gb_h1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel1.add(jL_gb_h1);
-        jL_gb_h1.setBounds(530, 200, 60, 30);
+        jL_gb_h1.setBounds(530, 180, 60, 30);
 
         jP_gobi.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(102, 102, 102)));
         jP_gobi.setLayout(null);
 
-        jL_gb_network.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/network_off.png"))); // NOI18N
+        jL_gb_network.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/network_off_jijig.png"))); // NOI18N
         jP_gobi.add(jL_gb_network);
-        jL_gb_network.setBounds(10, 20, 75, 60);
+        jL_gb_network.setBounds(10, 10, 45, 40);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("ГОВЬ ӨРГӨХ СТАНЦ");
         jP_gobi.add(jLabel5);
-        jLabel5.setBounds(100, 40, 160, 17);
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jP_gobi.add(jLabel6);
-        jLabel6.setBounds(110, 50, 60, 30);
+        jLabel5.setBounds(70, 20, 160, 17);
 
         jPanel1.add(jP_gobi);
-        jP_gobi.setBounds(480, 20, 280, 100);
+        jP_gobi.setBounds(490, 110, 270, 60);
 
         jP_zeeg.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(102, 102, 102)));
         jP_zeeg.setLayout(null);
 
-        jL_zg_network.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/network_off.png"))); // NOI18N
+        jL_zg_network.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/network_off_jijig.png"))); // NOI18N
         jP_zeeg.add(jL_zg_network);
-        jL_zg_network.setBounds(10, 10, 80, 80);
+        jL_zg_network.setBounds(10, 10, 50, 40);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("ЗЭЭГ ӨРГӨХ СТАНЦ");
         jP_zeeg.add(jLabel4);
-        jLabel4.setBounds(100, 40, 150, 17);
+        jLabel4.setBounds(70, 20, 150, 17);
 
         jPanel1.add(jP_zeeg);
-        jP_zeeg.setBounds(190, 20, 280, 100);
+        jP_zeeg.setBounds(200, 110, 270, 60);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/led-display.jpg"))); // NOI18N
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(210, 370, 100, 80);
+        jLabel7.setBounds(220, 340, 100, 80);
 
         jL_1000_temp.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_1000_temp.setForeground(new java.awt.Color(102, 255, 0));
         jL_1000_temp.setText("0");
         jPanel1.add(jL_1000_temp);
-        jL_1000_temp.setBounds(990, 530, 50, 30);
+        jL_1000_temp.setBounds(990, 500, 50, 30);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/led-display.jpg"))); // NOI18N
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(190, 560, 100, 90);
+        jLabel9.setBounds(200, 510, 100, 90);
 
         jL_1000_rh.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_1000_rh.setForeground(new java.awt.Color(255, 153, 0));
         jL_1000_rh.setText("0");
         jPanel1.add(jL_1000_rh);
-        jL_1000_rh.setBounds(990, 560, 50, 30);
+        jL_1000_rh.setBounds(990, 530, 50, 30);
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/led-display.jpg"))); // NOI18N
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(980, 510, 100, 90);
+        jLabel10.setBounds(980, 480, 100, 90);
 
         jP_cc.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(102, 102, 102)));
         jP_cc.setLayout(null);
 
         jL_hudag3_network.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/network_off_jijig.png"))); // NOI18N
         jP_cc.add(jL_hudag3_network);
-        jL_hudag3_network.setBounds(13, 14, 45, 34);
+        jL_hudag3_network.setBounds(10, 10, 45, 34);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("ГХ 3");
         jP_cc.add(jLabel12);
-        jLabel12.setBounds(70, 20, 40, 30);
+        jLabel12.setBounds(60, 10, 40, 30);
 
         jPanel1.add(jP_cc);
-        jP_cc.setBounds(190, 490, 120, 70);
+        jP_cc.setBounds(200, 460, 100, 50);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("УСАН САН 1");
         jPanel1.add(jLabel13);
-        jLabel13.setBounds(1080, 320, 100, 30);
+        jLabel13.setBounds(1090, 100, 100, 30);
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setText("УСАН САН 2 ");
         jPanel1.add(jLabel14);
-        jLabel14.setBounds(1080, 600, 100, 17);
+        jLabel14.setBounds(1090, 370, 100, 17);
 
         jP_1000.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(102, 102, 102)));
         jP_1000.setLayout(null);
 
-        jL_1000_network.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/network_off.png"))); // NOI18N
+        jL_1000_network.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/network_off_jijig.png"))); // NOI18N
         jP_1000.add(jL_1000_network);
-        jL_1000_network.setBounds(10, 20, 75, 57);
+        jL_1000_network.setBounds(10, 10, 50, 40);
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("1000-ын");
         jP_1000.add(jLabel16);
-        jLabel16.setBounds(90, 30, 70, 17);
+        jLabel16.setBounds(80, 10, 70, 17);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setText("САН");
         jP_1000.add(jLabel17);
-        jLabel17.setBounds(110, 50, 31, 17);
+        jLabel17.setBounds(100, 30, 31, 17);
 
         jPanel1.add(jP_1000);
-        jP_1000.setBounds(1080, 20, 170, 100);
+        jP_1000.setBounds(1090, 20, 170, 60);
 
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logo.jpg"))); // NOI18N
         jLabel15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jLabel15);
-        jLabel15.setBounds(10, 10, 96, 100);
+        jLabel15.setBounds(20, 10, 96, 100);
+
+        jPanel16.setBackground(new java.awt.Color(102, 255, 204));
+        jPanel16.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        chkAutoMode.setText("цагийн горим");
+        chkAutoMode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAutoModeActionPerformed(evt);
+            }
+        });
+
+        buttonGroup5.add(chkAutoModeSan1);
+        chkAutoModeSan1.setSelected(true);
+        chkAutoModeSan1.setText("Сан-1");
+        chkAutoModeSan1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAutoModeSan1ActionPerformed(evt);
+            }
+        });
+
+        buttonGroup5.add(chkAutoModeSan2);
+        chkAutoModeSan2.setText("Сан-2");
+        chkAutoModeSan2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAutoModeSan2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chkAutoMode, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkAutoModeSan1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkAutoModeSan2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(88, Short.MAX_VALUE))
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(chkAutoMode)
+                .addGap(7, 7, 7)
+                .addComponent(chkAutoModeSan1)
+                .addGap(7, 7, 7)
+                .addComponent(chkAutoModeSan2)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel16);
+        jPanel16.setBounds(750, 450, 210, 110);
+
+        jLAutoPilotStat.setText("Автомат ажиллагаа:");
+        jPanel1.add(jLAutoPilotStat);
+        jLAutoPilotStat.setBounds(750, 580, 270, 14);
+
+        jTabbedPane1.addTab("Хяналтын самбар", jPanel1);
+
+        ta_chat.setColumns(20);
+        ta_chat.setRows(5);
+        jScrollPane1.setViewportView(ta_chat);
+
+        buttonGroup1.add(jRadioButton1);
+
+        buttonGroup1.add(jRadioButton2);
 
         jPanel3.setBackground(new java.awt.Color(0, 204, 255));
         jPanel3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 153, 255), new java.awt.Color(0, 153, 255), new java.awt.Color(0, 153, 255), new java.awt.Color(0, 153, 255)));
@@ -522,6 +596,9 @@ public class MainForm extends javax.swing.JFrame {
         jL_hudag2_tolov.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         jL_hudag2_tolov.setText("Худаг 2");
 
+        jL_zg_tolov.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
+        jL_zg_tolov.setText("Зээг");
+
         jL_hudag3_tolov.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         jL_hudag3_tolov.setText("Худаг 3");
 
@@ -531,9 +608,6 @@ public class MainForm extends javax.swing.JFrame {
         jL_gb_tolov.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
         jL_gb_tolov.setText("Говь");
 
-        jL_zg_tolov.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        jL_zg_tolov.setText("Зээг");
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -542,85 +616,32 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jL_gb_tolov, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jL_zg_tolov, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jL_de_tolov, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jL_hudag3_tolov, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
-                    .addComponent(jL_hudag2_tolov, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jL_zg_tolov, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jL_hudag2_tolov, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                        .addGap(370, 370, 370))
+                    .addComponent(jL_hudag3_tolov, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jL_hudag2_tolov, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jL_hudag3_tolov, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jL_de_tolov, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jL_gb_tolov, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jL_zg_tolov, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE)
+                .addComponent(jL_zg_tolov, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jL_hudag3_tolov, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jL_hudag2_tolov, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         jPanel3.add(jPanel4);
         jPanel4.setBounds(140, 10, 490, 150);
-
-        chkAutoMode.setText("цагийн горим");
-        chkAutoMode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkAutoModeActionPerformed(evt);
-            }
-        });
-        jPanel3.add(chkAutoMode);
-        chkAutoMode.setBounds(10, 10, 110, 23);
-
-        buttonGroup5.add(chkAutoModeSan1);
-        chkAutoModeSan1.setSelected(true);
-        chkAutoModeSan1.setText("Сан-1");
-        chkAutoModeSan1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkAutoModeSan1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(chkAutoModeSan1);
-        chkAutoModeSan1.setBounds(10, 40, 110, 23);
-
-        buttonGroup5.add(chkAutoModeSan2);
-        chkAutoModeSan2.setText("Сан-2");
-        chkAutoModeSan2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkAutoModeSan2ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(chkAutoModeSan2);
-        chkAutoModeSan2.setBounds(10, 70, 110, 23);
-
-        jPanel1.add(jPanel3);
-        jPanel3.setBounds(330, 470, 640, 170);
-
-        jL_1000_h1.setBackground(new java.awt.Color(153, 255, 51));
-        jL_1000_h1.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
-        jL_1000_h1.setText("0");
-        jL_1000_h1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jL_1000_h1);
-        jL_1000_h1.setBounds(1190, 320, 60, 30);
-
-        jL_1000h2.setBackground(new java.awt.Color(102, 255, 0));
-        jL_1000h2.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
-        jL_1000h2.setText("0");
-        jL_1000h2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(jL_1000h2);
-        jL_1000h2.setBounds(1190, 590, 60, 30);
-
-        jLAutoPilotStat.setText("Автомат ажиллагаа:");
-        jPanel1.add(jLAutoPilotStat);
-        jLAutoPilotStat.setBounds(350, 660, 270, 14);
-
-        jTabbedPane1.addTab("Хяналтын самбар", jPanel1);
-
-        ta_chat.setColumns(20);
-        ta_chat.setRows(5);
-        jScrollPane1.setViewportView(ta_chat);
 
         b_denjzalgah1.setText("Дэнж залгах-1");
         b_denjzalgah1.addActionListener(new java.awt.event.ActionListener() {
@@ -643,6 +664,10 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup2.add(jRadioButton3);
+
+        buttonGroup2.add(jRadioButton4);
+
         b_gobizalgah1.setText("Говь залгах-1");
         b_gobizalgah1.setPreferredSize(new java.awt.Dimension(107, 23));
         b_gobizalgah1.addActionListener(new java.awt.event.ActionListener() {
@@ -657,6 +682,10 @@ public class MainForm extends javax.swing.JFrame {
                 b_gobizalgah2ActionPerformed(evt);
             }
         });
+
+        buttonGroup3.add(jRadioButton5);
+
+        buttonGroup3.add(jRadioButton6);
 
         b_zeegzalgah2.setText("Зээг залгах-2");
         b_zeegzalgah2.addActionListener(new java.awt.event.ActionListener() {
@@ -736,14 +765,6 @@ public class MainForm extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(59, 59, 59)
-                                        .addComponent(b_clear))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(197, 197, 197)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -787,19 +808,34 @@ public class MainForm extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jRadioButton2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(b_denjzalgah2)))
-                        .addGap(0, 3526, Short.MAX_VALUE)))
+                                .addComponent(b_denjzalgah2))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(183, 183, 183)
+                                        .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(b_clear))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 8, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b_clear))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(b_clear)))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
@@ -1071,11 +1107,14 @@ public class MainForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1274, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -1272,6 +1311,7 @@ public class MainForm extends javax.swing.JFrame {
         Server server = new Server(this, clients);
         Thread thread = new Thread(server);
         thread.start();
+        //timerD.start();
 
         PumpDataReader dataReader = new PumpDataReader(new UIUpdater(this));
         ScheduledExecutorService ex = Executors.newSingleThreadScheduledExecutor();
@@ -1321,8 +1361,12 @@ public class MainForm extends javax.swing.JFrame {
                 MainForm form = new MainForm();
                 form.startServer();
                 form.setVisible(true);
+
+
             }
         });
+
+
     }
 
     public void tellEveryone(String msg) {
@@ -1373,7 +1417,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.ButtonGroup buttonGroup5;
-    private static javax.swing.JCheckBox chkAutoMode;
+    private javax.swing.JCheckBox chkAutoMode;
     private static javax.swing.JCheckBox chkAutoModeSan1;
     private static javax.swing.JCheckBox chkAutoModeSan2;
     private javax.swing.JLabel jLAutoPilotStat;
@@ -1440,10 +1484,8 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -1460,6 +1502,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private static javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1567,7 +1610,6 @@ public class MainForm extends javax.swing.JFrame {
 
         public void updateAutoPilotStatus(String status) {
             mainForm.jLAutoPilotStat.setText("Автомат ажиллагаа: " + status);
-            System.out.println("updateAutoPilotStatus : " + status);
         }
 
         public void queueLog(String log) {
@@ -1634,16 +1676,17 @@ public class MainForm extends javax.swing.JFrame {
                 jL_cc_temp.setText( String.format("%.1f", msg.getTemp()));
                 jL_cc_rh.setText(   String.format("%.0f", msg.getRh()));
             }
-
             System.out.println(msg.getInverter());
-
-            if (msg.getInverter()>100) {
-                setImageLabel(mainForm.jL_pump3,"pump_run_saaral.gif");
-                jL_hudag3_tolov.setText("Худаг 3 залгасан.");
-            } else{
-                setImageLabelNull(mainForm.jL_pump3);
-                jL_hudag3_tolov.setText("Худаг 3 салгасан.");
+            if(msg.getInverter()>100){
+            setImageLabel(mainForm.jL_pump3,"pump_run_saaral.gif");
+            jL_hudag3_tolov.setText("Худаг 3 залгасан.");
             }
+            else{
+            setImageLabelNull(mainForm.jL_pump3);
+            jL_hudag3_tolov.setText("Худаг 3 салгасан.");
+            }
+
+
         }
 
         public void hudag2(HudagMsg msg) {
@@ -1659,7 +1702,7 @@ public class MainForm extends javax.swing.JFrame {
 
             jL_bb_temp.setText( String.format("%.1f", msg.getTemp()));
             jL_bb_rh.setText(   String.format("%.0f", msg.getRh()));
-
+          //  System.out.println(msg.getPortb());
             if ("?".equals(msg.getPortb())) {
                 System.out.println(msg.getPortb());
                 txt.setText("худаг2 салгасан.");
@@ -1697,12 +1740,12 @@ public class MainForm extends javax.swing.JFrame {
                 //setImageLabel(mainForm.jL_zg_pump2, "Nasos_pump_run.gif");
             }
             if("=".equals(msg.getPortb()) && msg.getInverter()>100 ){
-                jL_zg_tolov.setText("Зээг насос 1 байна.");
+                jL_zg_tolov.setText("Зээг насос 1 явж байна.");
                 setImageLabel(mainForm.jL_zg_pumps, "all1_pumps1_run.png");
                 setImageLabel(mainForm.jL_zg_pump1, "Nasos_pump_run.gif");
             }
             if(";".equals(msg.getPortb()) && msg.getInverter()>100 ){
-                jL_zg_tolov.setText("Зээг насос 2 байна.");
+                jL_zg_tolov.setText("Зээг насос 2 явж байна.");
                 setImageLabel(mainForm.jL_zg_pumps, "all1_pumps2_run.png");
                 setImageLabel(mainForm.jL_zg_pump2, "Nasos_pump_run.gif");
             }
@@ -1854,15 +1897,15 @@ public class MainForm extends javax.swing.JFrame {
                 return;
             }
 
-            jL_1000_h1.  setText(String.format("%.2f", msg.getH1()));
-            jL_1000h2.   setText(String.format("%.2f", msg.getH2()));
+            jL_1000_h1.  setText(String.format("%.2f", msg.getH1())+" м");
+            jL_1000h2.   setText(String.format("%.2f", msg.getH2())+" м");
             jL_1000_temp.setText(String.format("%.1f", msg.getTemp()));
             jL_1000_rh.  setText(String.format("%.0f", msg.getRh()));
 
             String imageCode = getImageCode(msg.getH1(), 0.0d, MyangaMsg.maxH1);
             setImage(jL_1000_1, imageCode);
 
-            imageCode = getImageCode(msg.getH2(), 0.0d, MyangaMsg.maxH1);
+            imageCode = getImageCode(msg.getH2(), 0.0d, MyangaMsg.maxH2);
             setImage(jL_1000_2, imageCode);
         }
 
