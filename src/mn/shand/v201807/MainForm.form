@@ -1156,7 +1156,7 @@
               <SubComponents>
                 <Component class="javax.swing.JCheckBox" name="chkAutoMode">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="&#x446;&#x430;&#x433;&#x438;&#x439;&#x43d; &#x433;&#x43e;&#x440;&#x438;&#x43c;"/>
+                    <Property name="text" type="java.lang.String" value="&#x410;&#x432;&#x442;&#x43e;&#x43c;&#x430;&#x442; &#x433;&#x43e;&#x440;&#x438;&#x43c;"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAutoModeActionPerformed"/>

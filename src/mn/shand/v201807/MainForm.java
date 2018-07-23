@@ -522,7 +522,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel16.setBackground(new java.awt.Color(102, 255, 204));
         jPanel16.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        chkAutoMode.setText("цагийн горим");
+        chkAutoMode.setText("Автомат горим");
         chkAutoMode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkAutoModeActionPerformed(evt);

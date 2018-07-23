@@ -8741,3 +8741,85 @@ myng:1532181674176:changed:h1  3.31 -> 3.302   last = 3.298   diff = 0.012000000
 zg:1532181675529:changed:h1  2.6 -> 2.594   last = 2.59   diff = 0.010000000000000231
 myng:1532181675979:changed:h1  3.28 -> 3.298   last = 3.302   diff = 0.02200000000000024 h2  1.28 -> 1.254   last = 1.25   diff = 0.030000000000000027
 de:1532181675998:changed:h1  1.99 -> 1.982   last = 1.978   diff = 0.01200000000000001
+gb:1532238223315:connected:null
+gb:1532238223319:changed:portb = ?
+de:1532238223353:connected:null
+myng:1532238224132:connected:null
+zg:1532238225134:connected:null
+bb:1532238225512:connected:null
+bb:1532238225514:changed:portb = >
+myng:1532238225791:connected:null
+cc:1532238226468:connected:null
+cc:1532238226472:changed:portb = ?
+de:1532238226744:connected:null
+de:1532238226746:changed:portb = ?
+zg:1532238228134:connected:null
+zg:1532238228137:changed:portb = =
+cc:1532238229256:send:AA
+cc:1532238239262:send:AA
+cc:1532238249267:send:AA
+cc:1532238259272:send:AA
+cc:1532238269277:send:AA
+cc:1532238279279:send:AA
+cc:1532238289284:send:AA
+cc:1532238299287:send:AA
+de:1532238306090:changed:portb = de
+de:1532238308650:changed:portb = ?
+cc:1532238309291:send:AA
+cc:1532238319297:send:AA
+de:1532238349614:connected:null
+de:1532238349617:changed:portb = ?
+cc:1532238349804:connected:null
+myng:1532238350187:connected:null
+bb:1532238351301:connected:null
+bb:1532238351306:changed:portb = >
+cc:1532238352350:changed:portb = ?
+zg:1532238352729:connected:null
+zg:1532238352730:changed:portb = =
+gb:1532238353091:connected:null
+gb:1532238353095:changed:portb = ?
+zg:1532238518541:connected:null
+zg:1532238518549:changed:portb = =
+myng:1532238519625:connected:null
+cc:1532238520345:connected:null
+cc:1532238520347:changed:portb = ?
+de:1532238521092:connected:null
+de:1532238521093:changed:portb = ?
+bb:1532238521485:connected:null
+bb:1532238521486:changed:portb = >
+gb:1532238522677:connected:null
+gb:1532238522678:changed:portb = ?
+de:1532238569746:connected:null
+de:1532238569748:changed:portb = ?
+myng:1532238570096:connected:null
+bb:1532238570881:connected:null
+bb:1532238570884:changed:portb = >
+cc:1532238572139:connected:null
+cc:1532238572141:changed:portb = ?
+gb:1532238574874:connected:null
+gb:1532238574878:changed:portb = ?
+zg:1532238575121:connected:null
+zg:1532238575122:changed:portb = =
+cc:1532238655965:changed:portb = cc
+cc:1532238658435:changed:portb = ?
+de:1532238754011:changed:portb = de
+de:1532238756571:changed:portb = ?
+gb:1532238771873:changed:portb = gb
+gb:1532238774367:changed:portb = ?
+myng:1532313654192:connected:null
+myng:1532313654251:received:myng 173 142 188 198 168 000 000 000 ?
+gb:1532313656006:connected:null
+gb:1532313656009:received:gb 023 053 000 000 054 000 000 000 ?
+bb:1532313656922:connected:null
+bb:1532313656925:received:bb 026 064 068 068 068 068 068 068 ?
+zg:1532313657149:connected:null
+cc:1532313657259:connected:null
+cc:1532313657262:received:cc 028 054 059 161 161 161 161 161 ?
+de:1532313658229:connected:null
+de:1532313658233:received:de 025 042 000 000 134 000 000 001 ?
+zg:1532313660150:connected:null
+zg:1532313660155:received:zg 026 049 082 000 218 000 000 158 =
+gb:1532313680786:changed:portb = gb
+gb:1532313683278:changed:portb = ?
+cc:1532313864774:changed:portb = 055
+cc:1532313867243:changed:portb = ?
