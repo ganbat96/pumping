@@ -17,9 +17,6 @@ import mn.shand.v2018.msg.ClientMsg;
  * @author Ganbat Bayarbaatar <ganbat96@gmail.com>
  */
 public class AutoPilot implements Runnable {
-    private static final int offHoursStart = 17;
-    private static final int offHoursEnd   = 22;
-
     private static final Map<String, String[][]> stopPumpCodes    = new ConcurrentHashMap<>();
     private static final Map<String, String[][]> startPump1Codes = new ConcurrentHashMap<>();
     private static final Map<String, String[][]> startPump2Codes = new ConcurrentHashMap<>();
@@ -81,6 +78,8 @@ public class AutoPilot implements Runnable {
     private Map<String, Client> clients;
     private MainForm.UIUpdater uiUdpater;
 
+    private Settings settings = Settings.load();
+
     private volatile boolean autoPilot;
     private volatile boolean toTank1;
     private volatile boolean toTank2;
@@ -108,7 +107,8 @@ public class AutoPilot implements Runnable {
 
         boolean offHour = false;
         int now = LocalTime.now().getHour();
-        if (now >= offHoursStart && now <= offHoursEnd) {
+        if (now >= settings.getOffHourStart() &&
+            now <= settings.getOffHourEnd()) {
             offHour = true;
         }
 

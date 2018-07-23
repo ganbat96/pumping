@@ -214,6 +214,8 @@ public class MainForm extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         logTable = new javax.swing.JTable();
+        jPanel17 = new javax.swing.JPanel();
+        settingsPanel1 = new mn.shand.v201807.SettingsPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("САЙНШАНД-УС ХАНГАМЖ-2018");
@@ -1103,6 +1105,11 @@ public class MainForm extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Log", jPanel14);
 
+        jPanel17.setLayout(new java.awt.BorderLayout());
+        jPanel17.add(settingsPanel1, java.awt.BorderLayout.CENTER);
+
+        jTabbedPane1.addTab("Тохиргоо", jPanel17);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1503,6 +1510,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
     private static javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1540,6 +1548,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton pumpSearchBtn;
     private javax.swing.JTextField pumpSearchEndDate;
     private javax.swing.JTextField pumpSearchStartDate;
+    private mn.shand.v201807.SettingsPanel settingsPanel1;
     private static javax.swing.JTextArea ta_chat;
     private javax.swing.ButtonGroup tooluurSearchHudagSelector;
     private static javax.swing.JTextField txt;
