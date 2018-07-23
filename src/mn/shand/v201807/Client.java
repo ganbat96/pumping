@@ -79,7 +79,7 @@ public class Client implements Runnable {
 
                     updater.queueLog("Client processed a msg: " + message);
                     ClientMsg status = statusMap.get(code);
-                    if (status == null) {
+                    if (status == null || status.getType() != ClientMsg.TYPE_STATUS) {
                         Log log = new Log();
                         log.setClientCode(code);
                         log.setCreatedAt(new Timestamp(System.currentTimeMillis()));
