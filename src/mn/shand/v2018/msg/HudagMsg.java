@@ -19,13 +19,19 @@ public class HudagMsg extends ClientMsg {
     private double inverter;
     private String portb;
 
+    private boolean hasInventer;
+
+    public HudagMsg(boolean hasInventer) {
+        this.hasInventer = hasInventer;
+    }
+
     public void process(String[] message) {
         try{
-        temp  = Integer.parseInt(message[1]);
-        rh    = Integer.parseInt(message[2]);
-        p1    = Integer.parseInt(message[3]);
-        inverter = Integer.parseInt(message[4]);
-        portb = message[9];
+            temp  = Integer.parseInt(message[1]);
+            rh    = Integer.parseInt(message[2]);
+            p1    = Integer.parseInt(message[3]);
+            inverter = Integer.parseInt(message[4]);
+            portb = message[9];
         }catch(Exception ex){System.out.println("hudag2 array exception");}
         //temp = temp * 150 / 256 - 74;
         //temp = Math.ceil(temp);
@@ -53,7 +59,11 @@ public class HudagMsg extends ClientMsg {
 
     @Override
     public boolean isActive() {
-        return portb != null && !Objects.equals("?", portb);
+        if (hasInventer) {
+             return inverter > 100.0d;
+        } else {
+            return portb != null && !Objects.equals("?", portb);
+        }
     }
 
     @Override

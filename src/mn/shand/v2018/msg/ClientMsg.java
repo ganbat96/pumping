@@ -23,8 +23,8 @@ public abstract class ClientMsg {
 
     public static ClientMsg create(String code) {
         switch (code) {
-            case "cc"   : return new HudagMsg();
-            case "bb"   : return new HudagMsg();
+            case "cc"   : return new HudagMsg(true);
+            case "bb"   : return new HudagMsg(false);
             case "zg"   : return new ZeegMsg();
             case "gb"   : return new GobiMsg();
             case "de"   : return new DenjMsg();
