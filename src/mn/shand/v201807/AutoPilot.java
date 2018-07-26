@@ -64,11 +64,11 @@ public class AutoPilot implements Runnable {
     private static final List<StartRule> startRules = new ArrayList<>();
     private static final List<StartRule> stopRules  = new ArrayList<>();
     static {
-        startRules.add(new StartRule("de", 30, "myng", 40));
-        startRules.add(new StartRule("gb", 30, "de",   40));
-        startRules.add(new StartRule("zg", 30, "gb",   40));
-        startRules.add(new StartRule("cc", 0,  "zg",   40));
-        startRules.add(new StartRule("bb", 0,  "zg",   40));
+        startRules.add(new StartRule("de", 30, "myng", 80));
+        startRules.add(new StartRule("gb", 30, "de",   50));
+        startRules.add(new StartRule("zg", 30, "gb",   50));
+        startRules.add(new StartRule("cc", 0,  "zg",   50));
+        startRules.add(new StartRule("bb", 0,  "zg",   50));
 
         stopRules.add(new StartRule("de", 0, "myng", 95));
         stopRules.add(new StartRule("gb", 0, "de",   95));
