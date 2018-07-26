@@ -42,6 +42,7 @@ public class AutoPilot implements Runnable {
                                                    {"PP", "1000"},
                                                    {"OO", "800" },
                                                    {"RR", "1"   } });
+        startPump1Codes.put("bb", new String[][] { {"CC", "1"   } });
         startPump1Codes.put("cc", new String[][] { {"AA", "1"   } });
 
         startPump2Codes.put("de", new String[][] { {"II", "3500"},
@@ -57,6 +58,7 @@ public class AutoPilot implements Runnable {
                                                    {"QQ", "800" },
                                                    {"RR", "1"   } });
         startPump2Codes.put("bb", new String[][] { {"CC", "1"   } });
+        startPump2Codes.put("cc", new String[][] { {"AA", "1"   } });
     }
 
     private static final List<StartRule> startRules = new ArrayList<>();
