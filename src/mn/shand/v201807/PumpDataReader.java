@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.net.Socket;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -38,9 +39,12 @@ public class PumpDataReader implements Runnable {
     private static final byte[] fractionBytes = new byte[] {(byte) 0x01, (byte) 0x03, (byte) 0x00, (byte) 0x0A, (byte) 0x00, (byte) 0x01, (byte) 0xa4, (byte) 0x08};
 
     private MainForm.UIUpdater updater;
+    private Settings settings;
 
     public PumpDataReader(MainForm.UIUpdater updater) {
         this.updater = updater;
+
+        this.settings = Settings.load();
     }
 
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
@@ -62,11 +66,11 @@ public class PumpDataReader implements Runnable {
     private static long read(InputStream in, int count, int start, int end) throws IOException {
         byte[] bytes = new byte[count];
         in.read(bytes);
-        
-        
+
+
         String hex = bytesToHex(Arrays.copyOfRange(bytes, start, end + 1));
         return Long.parseLong(hex, 16);
-        
+
     }
 
     public static PumpData read(String code) {
@@ -128,20 +132,31 @@ public class PumpDataReader implements Runnable {
         if (lines != null && !lines.isEmpty()) {
             PumpData prev = PumpData.fromStr(lines.get(0));
 
-            long t0 = prev.getReadAt().getTime();
-            long t1 = data.getReadAt().getTime();
+            int t0 = getLogHour(prev.getReadAt());
+            int t1 = getLogHour(data.getReadAt());
 
-            long ms = t1 - t0;
-            long sec = ms / 1000;
-            long min = sec / 60;
-            long hour = min / 60;
-
-            // 6 цаг тутамд лог хадгалахын тулд ...
-            if (hour < 6) {
+            if (t0 == t1) {
                 return;
             }
         }
 
         logger.log(PumpData.toStr(data));
+    }
+
+    private int getLogHour(java.sql.Timestamp time) {
+        LocalDateTime dt = time.toLocalDateTime();
+        int hour = getLogHour(settings.getCounterLogHours(), dt.getHour());
+
+        return dt.getDayOfMonth() * 100 + hour;
+    }
+
+    private static int getLogHour(int[] hours, int hour) {
+        for (int i = hours.length - 1; i >= 0; i --) {
+            if (hour >= hours[i]) {
+                return hours[i];
+            }
+        }
+
+        return hours[hours.length - 1];
     }
 }

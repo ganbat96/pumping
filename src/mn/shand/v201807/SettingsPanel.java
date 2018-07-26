@@ -5,6 +5,7 @@
  */
 package mn.shand.v201807;
 
+import java.util.StringJoiner;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,14 +27,29 @@ public class SettingsPanel extends javax.swing.JPanel {
         Settings settings = Settings.load();
         txtOffHourStart.setText(String.valueOf(settings.getOffHourStart()));
         txtOffHourEnd.setText(  String.valueOf(settings.getOffHourEnd()));
+
+        StringJoiner hours = new StringJoiner(",");
+        for (int hour : settings.getCounterLogHours()) {
+            hours.add(String.valueOf(hour));
+        }
+        txtCounterLogHours.setText(hours.toString());
     }
 
-    private String error;
     private void save() {
         try {
             Settings settings = new Settings();
             settings.setOffHourStart(asInt(txtOffHourStart.getText()));
             settings.setOffHourEnd(  asInt(txtOffHourEnd.getText()));
+
+            if (txtCounterLogHours.getText() != null && !txtCounterLogHours.getText().isEmpty()) {
+                String[] _hours = txtCounterLogHours.getText().split(",");
+                int[] counterLogHours = new int[_hours.length];
+                for (int i = 0; i < _hours.length; i ++) {
+                    counterLogHours[i] = Integer.parseInt(_hours[i]);
+                }
+                settings.setCounterLogHours(counterLogHours);
+            }
+
             settings.save();
 
             JOptionPane.showMessageDialog(null, "Амжилттай хадгаллаа!");
@@ -42,7 +58,7 @@ public class SettingsPanel extends javax.swing.JPanel {
                 return;
             }
 
-            throw e;
+            JOptionPane.showMessageDialog(null, "Алдаа гарлаа : " + e.getMessage());
         }
     }
 
@@ -71,6 +87,9 @@ public class SettingsPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         txtOffHourEnd = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtCounterLogHours = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -90,6 +109,12 @@ public class SettingsPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Автоматаар асах цаг");
 
+        jLabel3.setText("Тоолуурын заалт хадгалах цагууд");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(100, 100, 100));
+        jLabel4.setText("Жишээ нь: 8 цаг, 16 цагт, 00 цагт авахаар бол,  \"08,16,00\" гэж оруулна");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -104,8 +129,14 @@ public class SettingsPanel extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtOffHourEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(281, Short.MAX_VALUE))
+                        .addComponent(txtOffHourEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtCounterLogHours, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,7 +149,12 @@ public class SettingsPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtOffHourEnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtCounterLogHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
         add(jPanel2, java.awt.BorderLayout.CENTER);
@@ -133,8 +169,11 @@ public class SettingsPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField txtCounterLogHours;
     private javax.swing.JTextField txtOffHourEnd;
     private javax.swing.JTextField txtOffHourStart;
     // End of variables declaration//GEN-END:variables

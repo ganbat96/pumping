@@ -12,8 +12,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringJoiner;
 
 /**
  *
@@ -22,6 +24,7 @@ import java.util.Map;
 public class Settings {
     private int offHourStart;
     private int offHourEnd;
+    private int[] counterLogHours;
 
     public static Settings load() {
         Map<String, String> values = Util.read();
@@ -29,6 +32,18 @@ public class Settings {
         Settings settings = new Settings();
         settings.offHourStart = Util.asInt(values, "off.hours.start", 17);
         settings.offHourEnd   = Util.asInt(values, "off.hours.end",   22);
+
+        String hours = values.get("counter.log.hours");
+        hours = hours != null ? hours : "0,12";
+
+        String[] _hours = hours.split(",");
+        settings.counterLogHours = new int[_hours.length];
+        for (int i = 0; i < _hours.length; i ++) {
+            settings.counterLogHours[i] = Integer.parseInt(_hours[i]);
+        }
+
+        Arrays.sort(settings.counterLogHours);
+
         return settings;
     }
 
@@ -36,6 +51,15 @@ public class Settings {
         Map<String, String> values = new HashMap<>();
         values.put("off.hours.start", String.valueOf(offHourStart));
         values.put("off.hours.end",   String.valueOf(offHourEnd));
+
+        if (counterLogHours != null) {
+            StringJoiner hours = new StringJoiner(",");
+            for (int hour : counterLogHours) {
+                hours.add(String.valueOf(hour));
+            }
+            values.put("counter.log.hours", hours.toString());
+        }
+
         Util.write(values);
     }
 
@@ -53,6 +77,14 @@ public class Settings {
 
     public void setOffHourEnd(int offHourEnd) {
         this.offHourEnd = offHourEnd;
+    }
+
+    public int[] getCounterLogHours() {
+        return counterLogHours;
+    }
+
+    public void setCounterLogHours(int[] counterLogHours) {
+        this.counterLogHours = counterLogHours;
     }
 
     public static class Util {
