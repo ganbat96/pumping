@@ -63,18 +63,26 @@ public class AutoPilot implements Runnable {
 
     private static final List<StartRule> startRules = new ArrayList<>();
     private static final List<StartRule> stopRules  = new ArrayList<>();
+    private static final List<StartRule> autoStopRules  = new ArrayList<>();
     static {
+        // src нь srcPct-с их байхад, trg нь trgPct-с доошоо ороход src-г асаах
         startRules.add(new StartRule("de", 30, "myng", 40));
         startRules.add(new StartRule("gb", 30, "de",   40));
         startRules.add(new StartRule("zg", 30, "gb",   40));
         startRules.add(new StartRule("cc", 0,  "zg",   40));
         startRules.add(new StartRule("bb", 0,  "zg",   40));
 
+        // trg нь trgPct-с дээшээ гарахад src-г зогсоох
         stopRules.add(new StartRule("de", 0, "myng", 95));
         stopRules.add(new StartRule("gb", 0, "de",   95));
         stopRules.add(new StartRule("zg", 0, "gb",   95));
         stopRules.add(new StartRule("cc", 0, "zg",   70));
         stopRules.add(new StartRule("bb", 0, "zg",   95));
+
+        // src нь srcPct-с доошоо ороход src-г зогсоох
+        autoStopRules.add(new StartRule("de", 30, null, 0));
+        autoStopRules.add(new StartRule("gb", 30, null, 0));
+        autoStopRules.add(new StartRule("zg", 30, null, 0));
     }
 
     private Map<String, Client> clients;
@@ -138,6 +146,13 @@ public class AutoPilot implements Runnable {
         for (StartRule rule : stopRules) {
             int trgPct = getPercentage(rule.trgCode, tankNum);
             if (rule.minTrgPct <= trgPct) {
+                stopPump(rule.srcCode);
+            }
+        }
+
+        for (StartRule rule : autoStopRules) {
+            int srcPct = getPercentage(rule.srcCode, tankNum);
+            if (rule.minSrcPct >= srcPct) {
                 stopPump(rule.srcCode);
             }
         }
