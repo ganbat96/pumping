@@ -72,7 +72,10 @@ public class MainForm extends javax.swing.JFrame {
         buttonGroup3 = new javax.swing.ButtonGroup();
         tooluurSearchHudagSelector = new javax.swing.ButtonGroup();
         buttonGroup4 = new javax.swing.ButtonGroup();
-        buttonGroup5 = new javax.swing.ButtonGroup();
+        autoModeSelectTank = new javax.swing.ButtonGroup();
+        autoModeSelectZeeg = new javax.swing.ButtonGroup();
+        autoModeSelectGobi = new javax.swing.ButtonGroup();
+        autoModeSelectDenj = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jP_de = new javax.swing.JPanel();
@@ -140,7 +143,18 @@ public class MainForm extends javax.swing.JFrame {
         jPanel16 = new javax.swing.JPanel();
         chkAutoMode = new javax.swing.JCheckBox();
         chkAutoModeSan1 = new javax.swing.JCheckBox();
+        chkAutoModeDenj1 = new javax.swing.JCheckBox();
+        chkAutoModeZeeg1 = new javax.swing.JCheckBox();
+        chkAutoModeZeeg2 = new javax.swing.JCheckBox();
+        jLAutoPilotStat1 = new javax.swing.JLabel();
+        jLAutoPilotStat2 = new javax.swing.JLabel();
+        chkAutoModeGobi1 = new javax.swing.JCheckBox();
+        chkAutoModeGobi2 = new javax.swing.JCheckBox();
+        jLAutoPilotStat3 = new javax.swing.JLabel();
+        chkAutoModeDenj2 = new javax.swing.JCheckBox();
         chkAutoModeSan2 = new javax.swing.JCheckBox();
+        jLAutoPilotStat4 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         jLAutoPilotStat = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -525,28 +539,99 @@ public class MainForm extends javax.swing.JFrame {
         jPanel16.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         chkAutoMode.setText("Автомат горим");
+        chkAutoMode.setOpaque(false);
         chkAutoMode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkAutoModeActionPerformed(evt);
             }
         });
 
-        buttonGroup5.add(chkAutoModeSan1);
+        autoModeSelectTank.add(chkAutoModeSan1);
         chkAutoModeSan1.setSelected(true);
         chkAutoModeSan1.setText("Сан-1");
+        chkAutoModeSan1.setOpaque(false);
         chkAutoModeSan1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkAutoModeSan1ActionPerformed(evt);
             }
         });
 
-        buttonGroup5.add(chkAutoModeSan2);
+        autoModeSelectDenj.add(chkAutoModeDenj1);
+        chkAutoModeDenj1.setText("Насос 1");
+        chkAutoModeDenj1.setOpaque(false);
+        chkAutoModeDenj1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAutoModeDenj1ActionPerformed(evt);
+            }
+        });
+
+        autoModeSelectZeeg.add(chkAutoModeZeeg1);
+        chkAutoModeZeeg1.setText("Насос 1");
+        chkAutoModeZeeg1.setOpaque(false);
+        chkAutoModeZeeg1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAutoModeZeeg1ActionPerformed(evt);
+            }
+        });
+
+        autoModeSelectZeeg.add(chkAutoModeZeeg2);
+        chkAutoModeZeeg2.setText("Насос 2");
+        chkAutoModeZeeg2.setToolTipText("");
+        chkAutoModeZeeg2.setOpaque(false);
+        chkAutoModeZeeg2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAutoModeZeeg2ActionPerformed(evt);
+            }
+        });
+
+        jLAutoPilotStat1.setText("Зээг");
+
+        jLAutoPilotStat2.setText("Говь");
+
+        autoModeSelectGobi.add(chkAutoModeGobi1);
+        chkAutoModeGobi1.setText("Насос 1");
+        chkAutoModeGobi1.setOpaque(false);
+        chkAutoModeGobi1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAutoModeGobi1ActionPerformed(evt);
+            }
+        });
+
+        autoModeSelectGobi.add(chkAutoModeGobi2);
+        chkAutoModeGobi2.setText("Насос 2");
+        chkAutoModeGobi2.setToolTipText("");
+        chkAutoModeGobi2.setOpaque(false);
+        chkAutoModeGobi2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAutoModeGobi2ActionPerformed(evt);
+            }
+        });
+
+        jLAutoPilotStat3.setText("Дэнж");
+
+        autoModeSelectDenj.add(chkAutoModeDenj2);
+        chkAutoModeDenj2.setText("Насос 2");
+        chkAutoModeDenj2.setToolTipText("");
+        chkAutoModeDenj2.setOpaque(false);
+        chkAutoModeDenj2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkAutoModeDenj2ActionPerformed(evt);
+            }
+        });
+
+        autoModeSelectTank.add(chkAutoModeSan2);
         chkAutoModeSan2.setText("Сан-2");
+        chkAutoModeSan2.setOpaque(false);
         chkAutoModeSan2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkAutoModeSan2ActionPerformed(evt);
             }
         });
+
+        jLAutoPilotStat4.setText("1000 литрийн сан");
+
+        jLAutoPilotStat.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLAutoPilotStat.setText("Автомат ажиллагаа:");
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -554,30 +639,68 @@ public class MainForm extends javax.swing.JFrame {
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chkAutoMode, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkAutoModeSan1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkAutoModeSan2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLAutoPilotStat4, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                .addComponent(jLAutoPilotStat1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLAutoPilotStat2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLAutoPilotStat3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkAutoModeSan1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkAutoModeZeeg1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkAutoModeGobi1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkAutoModeDenj1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkAutoModeSan2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkAutoModeZeeg2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkAutoModeGobi2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chkAutoModeDenj2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(chkAutoMode, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLAutoPilotStat, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(chkAutoMode)
-                .addGap(7, 7, 7)
-                .addComponent(chkAutoModeSan1)
-                .addGap(7, 7, 7)
-                .addComponent(chkAutoModeSan2)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addGap(5, 5, 5)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLAutoPilotStat)
+                    .addComponent(chkAutoMode))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chkAutoModeSan1)
+                    .addComponent(jLAutoPilotStat4)
+                    .addComponent(chkAutoModeSan2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chkAutoModeZeeg1)
+                    .addComponent(chkAutoModeZeeg2)
+                    .addComponent(jLAutoPilotStat1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chkAutoModeGobi1)
+                    .addComponent(chkAutoModeGobi2)
+                    .addComponent(jLAutoPilotStat2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(chkAutoModeDenj1)
+                        .addComponent(jLAutoPilotStat3))
+                    .addComponent(chkAutoModeDenj2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel16);
-        jPanel16.setBounds(750, 450, 210, 110);
-
-        jLAutoPilotStat.setText("Автомат ажиллагаа:");
-        jPanel1.add(jLAutoPilotStat);
-        jLAutoPilotStat.setBounds(750, 580, 270, 14);
+        jPanel16.setBounds(590, 450, 370, 170);
 
         jTabbedPane1.addTab("Хяналтын самбар", jPanel1);
 
@@ -1294,17 +1417,63 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_chkAutoModeSan1ActionPerformed
 
     private void chkAutoModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAutoModeActionPerformed
-        updateAutoMode();
+        autoModeChanged();
     }//GEN-LAST:event_chkAutoModeActionPerformed
+
+    private void chkAutoModeDenj1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAutoModeDenj1ActionPerformed
+        updateAutoMode();
+    }//GEN-LAST:event_chkAutoModeDenj1ActionPerformed
+
+    private void chkAutoModeZeeg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAutoModeZeeg1ActionPerformed
+        updateAutoMode();
+    }//GEN-LAST:event_chkAutoModeZeeg1ActionPerformed
+
+    private void chkAutoModeZeeg2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAutoModeZeeg2ActionPerformed
+        updateAutoMode();
+    }//GEN-LAST:event_chkAutoModeZeeg2ActionPerformed
+
+    private void chkAutoModeGobi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAutoModeGobi1ActionPerformed
+        updateAutoMode();
+    }//GEN-LAST:event_chkAutoModeGobi1ActionPerformed
+
+    private void chkAutoModeGobi2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAutoModeGobi2ActionPerformed
+        updateAutoMode();
+    }//GEN-LAST:event_chkAutoModeGobi2ActionPerformed
+
+    private void chkAutoModeDenj2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAutoModeDenj2ActionPerformed
+        updateAutoMode();
+    }//GEN-LAST:event_chkAutoModeDenj2ActionPerformed
 
     private void chkAutoModeSan2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAutoModeSan2ActionPerformed
         updateAutoMode();
     }//GEN-LAST:event_chkAutoModeSan2ActionPerformed
 
+    private void autoModeChanged() {
+        updateAutoMode();
+
+        chkAutoModeSan1.setEnabled(chkAutoMode.isSelected());
+        chkAutoModeSan2.setEnabled(chkAutoMode.isSelected());
+        chkAutoModeZeeg1.setEnabled(chkAutoMode.isSelected());
+        chkAutoModeZeeg2.setEnabled(chkAutoMode.isSelected());
+        chkAutoModeGobi1.setEnabled(chkAutoMode.isSelected());
+        chkAutoModeGobi2.setEnabled(chkAutoMode.isSelected());
+        chkAutoModeDenj1.setEnabled(chkAutoMode.isSelected());
+        chkAutoModeDenj2.setEnabled(chkAutoMode.isSelected());
+    }
+
     private void updateAutoMode() {
         autoPilot.setAutoPilot(chkAutoMode.isSelected());
-        autoPilot.setToTank1(chkAutoModeSan1.isSelected());
-        autoPilot.setToTank2(chkAutoModeSan2.isSelected());
+
+        autoPilot.setTankNum("myng", getTankNum(chkAutoModeSan1,  chkAutoModeSan2));
+        autoPilot.setTankNum("de",   getTankNum(chkAutoModeDenj1, chkAutoModeDenj2));
+        autoPilot.setTankNum("gb",   getTankNum(chkAutoModeGobi1, chkAutoModeGobi2));
+        autoPilot.setTankNum("zg",   getTankNum(chkAutoModeZeeg1, chkAutoModeZeeg2));
+    }
+
+    private int getTankNum(javax.swing.JCheckBox chk1, javax.swing.JCheckBox chk2) {
+        boolean value1 = chk1.isSelected();
+        boolean value2 = chk2.isSelected();
+        return value1 ? 1 : (value2 ? 2 : 0);
     }
 
     Timer timerD=new Timer(1500, new ActionListener() {
@@ -1333,7 +1502,7 @@ public class MainForm extends javax.swing.JFrame {
         pumpSearchEndDate.setText(now.format(DateTimeFormatter.ISO_DATE));
 
         autoPilot = new AutoPilot(new UIUpdater(this), clients);
-        updateAutoMode();
+        autoModeChanged();
 
         ex = Executors.newSingleThreadScheduledExecutor();
         ex.scheduleWithFixedDelay(autoPilot, 10, 10, TimeUnit.SECONDS);
@@ -1403,6 +1572,10 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup autoModeSelectDenj;
+    private javax.swing.ButtonGroup autoModeSelectGobi;
+    private javax.swing.ButtonGroup autoModeSelectTank;
+    private javax.swing.ButtonGroup autoModeSelectZeeg;
     private javax.swing.JButton bPump1Refresh;
     private javax.swing.JButton bPump2Refresh;
     private static javax.swing.JButton b_clear;
@@ -1423,11 +1596,20 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.ButtonGroup buttonGroup4;
-    private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.JCheckBox chkAutoMode;
+    private static javax.swing.JCheckBox chkAutoModeDenj1;
+    private static javax.swing.JCheckBox chkAutoModeDenj2;
+    private static javax.swing.JCheckBox chkAutoModeGobi1;
+    private static javax.swing.JCheckBox chkAutoModeGobi2;
     private static javax.swing.JCheckBox chkAutoModeSan1;
     private static javax.swing.JCheckBox chkAutoModeSan2;
+    private static javax.swing.JCheckBox chkAutoModeZeeg1;
+    private static javax.swing.JCheckBox chkAutoModeZeeg2;
     private javax.swing.JLabel jLAutoPilotStat;
+    private javax.swing.JLabel jLAutoPilotStat1;
+    private javax.swing.JLabel jLAutoPilotStat2;
+    private javax.swing.JLabel jLAutoPilotStat3;
+    private javax.swing.JLabel jLAutoPilotStat4;
     private static javax.swing.JLabel jL_1000_1;
     private static javax.swing.JLabel jL_1000_2;
     private static javax.swing.JLabel jL_1000_h1;
@@ -1532,6 +1714,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -1618,7 +1801,7 @@ public class MainForm extends javax.swing.JFrame {
         }
 
         public void updateAutoPilotStatus(String status) {
-            mainForm.jLAutoPilotStat.setText("Автомат ажиллагаа: " + status);
+            mainForm.jLAutoPilotStat.setText(status);
         }
 
         public void queueLog(String log) {

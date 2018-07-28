@@ -15,7 +15,13 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup4">
     </Component>
-    <Component class="javax.swing.ButtonGroup" name="buttonGroup5">
+    <Component class="javax.swing.ButtonGroup" name="autoModeSelectTank">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="autoModeSelectZeeg">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="autoModeSelectGobi">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="autoModeSelectDenj">
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -1121,34 +1127,88 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="750" y="450" width="210" height="110"/>
+                  <AbsoluteConstraints x="590" y="450" width="370" height="170"/>
                 </Constraint>
               </Constraints>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="chkAutoMode" min="-2" pref="110" max="-2" attributes="0"/>
-                              <Component id="chkAutoModeSan1" min="-2" pref="110" max="-2" attributes="0"/>
-                              <Component id="chkAutoModeSan2" min="-2" pref="110" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jSeparator1" alignment="1" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jLAutoPilotStat4" alignment="0" pref="110" max="32767" attributes="0"/>
+                                          <Component id="jLAutoPilotStat1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLAutoPilotStat2" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLAutoPilotStat3" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="chkAutoModeSan1" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="chkAutoModeZeeg1" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="chkAutoModeGobi1" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="chkAutoModeDenj1" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="chkAutoModeSan2" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="chkAutoModeZeeg2" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="chkAutoModeGobi2" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="chkAutoModeDenj2" min="-2" pref="110" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="chkAutoMode" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jLAutoPilotStat" min="-2" pref="144" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="88" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLAutoPilotStat" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chkAutoMode" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="chkAutoMode" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                          <Component id="chkAutoModeSan1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                          <Component id="chkAutoModeSan2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="14" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="chkAutoModeSan1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLAutoPilotStat4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chkAutoModeSan2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="chkAutoModeZeeg1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chkAutoModeZeeg2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLAutoPilotStat1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="chkAutoModeGobi1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="chkAutoModeGobi2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLAutoPilotStat2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="chkAutoModeDenj1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLAutoPilotStat3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="chkAutoModeDenj2" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1157,6 +1217,7 @@
                 <Component class="javax.swing.JCheckBox" name="chkAutoMode">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="&#x410;&#x432;&#x442;&#x43e;&#x43c;&#x430;&#x442; &#x433;&#x43e;&#x440;&#x438;&#x43c;"/>
+                    <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAutoModeActionPerformed"/>
@@ -1165,10 +1226,11 @@
                 <Component class="javax.swing.JCheckBox" name="chkAutoModeSan1">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                      <ComponentRef name="buttonGroup5"/>
+                      <ComponentRef name="autoModeSelectTank"/>
                     </Property>
                     <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="&#x421;&#x430;&#x43d;-1"/>
+                    <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAutoModeSan1ActionPerformed"/>
@@ -1177,12 +1239,121 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
                   </AuxValues>
                 </Component>
+                <Component class="javax.swing.JCheckBox" name="chkAutoModeDenj1">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="autoModeSelectDenj"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#x41d;&#x430;&#x441;&#x43e;&#x441; 1"/>
+                    <Property name="opaque" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAutoModeDenj1ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chkAutoModeZeeg1">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="autoModeSelectZeeg"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#x41d;&#x430;&#x441;&#x43e;&#x441; 1"/>
+                    <Property name="opaque" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAutoModeZeeg1ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chkAutoModeZeeg2">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="autoModeSelectZeeg"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#x41d;&#x430;&#x441;&#x43e;&#x441; 2"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                    <Property name="opaque" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAutoModeZeeg2ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLAutoPilotStat1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x417;&#x44d;&#x44d;&#x433;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLAutoPilotStat2">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x413;&#x43e;&#x432;&#x44c;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chkAutoModeGobi1">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="autoModeSelectGobi"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#x41d;&#x430;&#x441;&#x43e;&#x441; 1"/>
+                    <Property name="opaque" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAutoModeGobi1ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chkAutoModeGobi2">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="autoModeSelectGobi"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#x41d;&#x430;&#x441;&#x43e;&#x441; 2"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                    <Property name="opaque" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAutoModeGobi2ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLAutoPilotStat3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&#x414;&#x44d;&#x43d;&#x436;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="chkAutoModeDenj2">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="autoModeSelectDenj"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#x41d;&#x430;&#x441;&#x43e;&#x441; 2"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                    <Property name="opaque" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAutoModeDenj2ActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
+                </Component>
                 <Component class="javax.swing.JCheckBox" name="chkAutoModeSan2">
                   <Properties>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                      <ComponentRef name="buttonGroup5"/>
+                      <ComponentRef name="autoModeSelectTank"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="&#x421;&#x430;&#x43d;-2"/>
+                    <Property name="opaque" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAutoModeSan2ActionPerformed"/>
@@ -1191,18 +1362,21 @@
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
                   </AuxValues>
                 </Component>
+                <Component class="javax.swing.JLabel" name="jLAutoPilotStat4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="1000 &#x43b;&#x438;&#x442;&#x440;&#x438;&#x439;&#x43d; &#x441;&#x430;&#x43d;"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JSeparator" name="jSeparator1">
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLAutoPilotStat">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="text" type="java.lang.String" value="&#x410;&#x432;&#x442;&#x43e;&#x43c;&#x430;&#x442; &#x430;&#x436;&#x438;&#x43b;&#x43b;&#x430;&#x433;&#x430;&#x430;:"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="jLAutoPilotStat">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#x410;&#x432;&#x442;&#x43e;&#x43c;&#x430;&#x442; &#x430;&#x436;&#x438;&#x43b;&#x43b;&#x430;&#x433;&#x430;&#x430;:"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="750" y="580" width="270" height="-1"/>
-                </Constraint>
-              </Constraints>
-            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">

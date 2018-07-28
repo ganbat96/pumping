@@ -7,6 +7,7 @@ package mn.shand.v201807;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -90,8 +91,8 @@ public class AutoPilot implements Runnable {
     private Settings settings = Settings.load();
 
     private volatile boolean autoPilot;
-    private volatile boolean toTank1;
-    private volatile boolean toTank2;
+
+    private Map<String, Integer> tankNums = new HashMap<>();
 
     public AutoPilot(MainForm.UIUpdater uiUdpater, Map<String, Client> clients) {
         this.clients = clients;
@@ -129,28 +130,26 @@ public class AutoPilot implements Runnable {
             return "Хэмнэх цаг";
         }
 
-        int tankNum = toTank1 ? 1 : 2;
-
         for (StartRule rule : startRules) {
-            int srcPct = getPercentage(rule.srcCode, tankNum);
-            int trgPct = getPercentage(rule.trgCode, tankNum);
+            int srcPct = getPercentage(rule.srcCode);
+            int trgPct = getPercentage(rule.trgCode);
 
             if (rule.minTrgPct >= trgPct) {
                 if (rule.minSrcPct == 0 || rule.minSrcPct < srcPct) {
-                    startPump(rule.srcCode, tankNum);
+                    startPump(rule.srcCode);
                 }
             }
         }
 
         for (StartRule rule : stopRules) {
-            int trgPct = getPercentage(rule.trgCode, tankNum);
+            int trgPct = getPercentage(rule.trgCode);
             if (rule.minTrgPct <= trgPct) {
                 stopPump(rule.srcCode);
             }
         }
 
         for (StartRule rule : autoStopRules) {
-            int srcPct = getPercentage(rule.srcCode, tankNum);
+            int srcPct = getPercentage(rule.srcCode);
             if (rule.minSrcPct >= srcPct) {
                 stopPump(rule.srcCode);
             }
@@ -164,8 +163,20 @@ public class AutoPilot implements Runnable {
             return "Идэвхигүй";
         }
 
-        if (!toTank1 && !toTank2) {
+        if (getTankNum("myng") == 0) {
             return "Сан сонгогдоогүй";
+        }
+
+        if (getTankNum("gb") == 0) {
+            return "Говийн насос сонгогдоогүй";
+        }
+
+        if (getTankNum("zg") == 0) {
+            return "Зээгийн насос сонгогдоогүй";
+        }
+
+        if (getTankNum("de") == 0) {
+            return "Дэнжийн насос сонгогдоогүй";
         }
 
         for (String code : new String[] {"cc", "bb", "zg", "gb", "de", "myng"}) {
@@ -186,11 +197,12 @@ public class AutoPilot implements Runnable {
         send(clients.get(code), stopPumpCodes.get(code));
     }
 
-    private void startPump(String code, int tankNum) {
+    private void startPump(String code) {
         if (isClientActive(code)) {
             return;
         }
 
+        int tankNum = getTankNum(code);
         Map<String, String[][]> codes = tankNum == 1 ? startPump1Codes : startPump2Codes;
         send(clients.get(code), codes.get(code));
     }
@@ -219,7 +231,8 @@ public class AutoPilot implements Runnable {
         return msg != null && msg.isActive();
     }
 
-    private int getPercentage(String code, int tankNum) {
+    private int getPercentage(String code) {
+        int tankNum = getTankNum(code);
         ClientMsg msg = Client.statusMap.get(code);
         return msg.getHPercentage(tankNum);
     }
@@ -232,20 +245,13 @@ public class AutoPilot implements Runnable {
         this.autoPilot = autoPilot;
     }
 
-    public boolean isToTank1() {
-        return toTank1;
+    public int getTankNum(String code) {
+        Integer value = tankNums.get(code);
+        return value != null ? value : 0;
     }
 
-    public void setToTank1(boolean toTank1) {
-        this.toTank1 = toTank1;
-    }
-
-    public boolean isToTank2() {
-        return toTank2;
-    }
-
-    public void setToTank2(boolean toTank2) {
-        this.toTank2 = toTank2;
+    public void setTankNum(String code, int value) {
+        tankNums.put(code, value);
     }
 
     public static class StartRule {
