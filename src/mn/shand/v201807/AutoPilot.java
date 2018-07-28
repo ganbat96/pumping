@@ -118,7 +118,7 @@ public class AutoPilot implements Runnable {
         boolean offHour = false;
         int now = LocalTime.now().getHour();
         if (now >= settings.getOffHourStart() &&
-            now <= settings.getOffHourEnd()) {
+            now <  settings.getOffHourEnd()) {
             offHour = true;
         }
 
