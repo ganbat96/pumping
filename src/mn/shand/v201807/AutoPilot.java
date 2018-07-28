@@ -65,17 +65,17 @@ public class AutoPilot implements Runnable {
     private static final List<StartRule> stopRules  = new ArrayList<>();
     private static final List<StartRule> autoStopRules  = new ArrayList<>();
     static {
-        startRules.add(new StartRule("de", 30, "myng", 80));
-        startRules.add(new StartRule("gb", 30, "de",   50));
-        startRules.add(new StartRule("zg", 30, "gb",   50));
-        startRules.add(new StartRule("cc", 0,  "zg",   50));
-        startRules.add(new StartRule("bb", 0,  "zg",   50));
+        startRules.add(new StartRule("de", 50, "myng", 80));
+        startRules.add(new StartRule("gb", 50, "de",   60));
+        startRules.add(new StartRule("zg", 50, "gb",   60));
+        startRules.add(new StartRule("cc", 0,  "zg",   60));
+        startRules.add(new StartRule("bb", 0,  "zg",   60));
 
         // trg нь trgPct-с дээшээ гарахад src-г зогсоох
         stopRules.add(new StartRule("de", 0, "myng", 95));
         stopRules.add(new StartRule("gb", 0, "de",   95));
         stopRules.add(new StartRule("zg", 0, "gb",   95));
-        stopRules.add(new StartRule("cc", 0, "zg",   70));
+        stopRules.add(new StartRule("cc", 0, "zg",   85));
         stopRules.add(new StartRule("bb", 0, "zg",   95));
 
         // src нь srcPct-с доошоо ороход src-г зогсоох
