@@ -66,22 +66,22 @@ public class AutoPilot implements Runnable {
     private static final List<StartRule> stopRules  = new ArrayList<>();
     private static final List<StartRule> autoStopRules  = new ArrayList<>();
     static {
-        startRules.add(new StartRule("de", 50, "myng", 80));
-        startRules.add(new StartRule("gb", 50, "de",   60));
-        startRules.add(new StartRule("zg", 50, "gb",   60));
+        startRules.add(new StartRule("de", 75, "myng", 90));
+        startRules.add(new StartRule("gb", 65, "de",   80));
+        startRules.add(new StartRule("zg", 55, "gb",   70));
         startRules.add(new StartRule("cc", 0,  "zg",   60));
         startRules.add(new StartRule("bb", 0,  "zg",   60));
 
         // trg нь trgPct-с дээшээ гарахад src-г зогсоох
-        stopRules.add(new StartRule("de", 0, "myng", 95));
+        stopRules.add(new StartRule("de", 0, "myng", 100));
         stopRules.add(new StartRule("gb", 0, "de",   95));
-        stopRules.add(new StartRule("zg", 0, "gb",   95));
-        stopRules.add(new StartRule("cc", 0, "zg",   85));
-        stopRules.add(new StartRule("bb", 0, "zg",   95));
+        stopRules.add(new StartRule("zg", 0, "gb",   75));
+        stopRules.add(new StartRule("cc", 0, "zg",   90));
+        stopRules.add(new StartRule("bb", 0, "zg",   85));
 
         // src нь srcPct-с доошоо ороход src-г зогсоох
         autoStopRules.add(new StartRule("de", 30, null, 0));
-        autoStopRules.add(new StartRule("gb", 30, null, 0));
+        autoStopRules.add(new StartRule("gb", 40, null, 0));
         autoStopRules.add(new StartRule("zg", 30, null, 0));
     }
 
