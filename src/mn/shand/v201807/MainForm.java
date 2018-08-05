@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -40,6 +41,8 @@ public class MainForm extends javax.swing.JFrame {
 
     private Map<String, Client> clients = new HashMap<>();
     private AutoPilot autoPilot;
+
+    private Map<String, StationReader.Value> stationValues = new ConcurrentHashMap<>();
 
     private boolean gobiRun;
     private boolean denjRun;
@@ -1742,11 +1745,13 @@ public class MainForm extends javax.swing.JFrame {
     });
 
     public void startServer() {
+        // Төхөөрөмжүүдээс мэдээлэл хүлээн авах
         Server server = new Server(this, clients);
         Thread thread = new Thread(server);
         thread.start();
         //timerD.start();
 
+        // Тоолуур
         PumpDataReader dataReader = new PumpDataReader(new UIUpdater(this));
         ScheduledExecutorService ex = Executors.newSingleThreadScheduledExecutor();
         ex.scheduleWithFixedDelay(dataReader, 10, 10, TimeUnit.SECONDS);
@@ -1759,11 +1764,16 @@ public class MainForm extends javax.swing.JFrame {
         pumpSearchStartDate.setText(before.format(DateTimeFormatter.ISO_DATE));
         pumpSearchEndDate.setText(now.format(DateTimeFormatter.ISO_DATE));
 
+        // Автомат горим
         autoPilot = new AutoPilot(new UIUpdater(this), clients);
         autoModeChanged();
 
         ex = Executors.newSingleThreadScheduledExecutor();
         ex.scheduleWithFixedDelay(autoPilot, 10, 10, TimeUnit.SECONDS);
+
+        // Төхөөрөмжүүд (Өргөх станцууд) рүү хандаж мэдээлэл авах
+        ex = Executors.newSingleThreadScheduledExecutor();
+        ex.scheduleWithFixedDelay(new StationReader(stationValues), 10, 10, TimeUnit.SECONDS);
     }
 
     /**
@@ -2204,7 +2214,7 @@ public class MainForm extends javax.swing.JFrame {
                 if(msg.getInverter()<100){
                     setImageLabel(mainForm.jL_underpump0,"under_pump2_run.png");
                 }
-                
+
             }
         }
 
