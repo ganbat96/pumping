@@ -93,7 +93,6 @@ public class MainForm extends javax.swing.JFrame {
         jL_cc_temp = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jL_de_pump1 = new javax.swing.JLabel();
-        jL_underpump0 = new javax.swing.JLabel();
         jL_gb_pump1 = new javax.swing.JLabel();
         jL_zg_tank = new javax.swing.JLabel();
         jL_zg_pumps = new javax.swing.JLabel();
@@ -140,6 +139,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jL_underpump0 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         chkAutoMode = new javax.swing.JCheckBox();
         chkAutoModeSan1 = new javax.swing.JCheckBox();
@@ -264,7 +264,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel11.setBounds(60, 20, 40, 17);
 
         jPanel1.add(jP_bb);
-        jP_bb.setBounds(40, 350, 100, 50);
+        jP_bb.setBounds(200, 440, 100, 50);
         jPanel1.add(jL_zg_pump2);
         jL_zg_pump2.setBounds(370, 340, 60, 60);
         jPanel1.add(jL_zg_pump1);
@@ -274,34 +274,30 @@ public class MainForm extends javax.swing.JFrame {
         jL_bb_temp.setForeground(new java.awt.Color(51, 255, 0));
         jL_bb_temp.setText("0");
         jPanel1.add(jL_bb_temp);
-        jL_bb_temp.setBounds(50, 420, 50, 20);
+        jL_bb_temp.setBounds(210, 530, 50, 20);
         jPanel1.add(jL_pump_2);
-        jL_pump_2.setBounds(50, 530, 40, 80);
+        jL_pump_2.setBounds(300, 530, 40, 80);
         jPanel1.add(jL_pump3);
-        jL_pump3.setBounds(150, 530, 50, 80);
+        jL_pump3.setBounds(160, 530, 40, 80);
 
         jL_bb_rh.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_bb_rh.setForeground(new java.awt.Color(255, 153, 0));
         jL_bb_rh.setText("0");
         jPanel1.add(jL_bb_rh);
-        jL_bb_rh.setBounds(50, 450, 50, 30);
+        jL_bb_rh.setBounds(210, 560, 50, 20);
 
         jL_cc_temp.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_cc_temp.setForeground(new java.awt.Color(102, 255, 0));
         jL_cc_temp.setText("0");
         jPanel1.add(jL_cc_temp);
-        jL_cc_temp.setBounds(210, 530, 60, 30);
+        jL_cc_temp.setBounds(70, 530, 60, 30);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/led-display.jpg"))); // NOI18N
         jLabel8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(40, 410, 99, 70);
+        jLabel8.setBounds(200, 520, 100, 70);
         jPanel1.add(jL_de_pump1);
         jL_de_pump1.setBounds(960, 220, 60, 60);
-
-        jL_underpump0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/under_pumps2_run_all.png"))); // NOI18N
-        jPanel1.add(jL_underpump0);
-        jL_underpump0.setBounds(30, 200, 170, 610);
         jPanel1.add(jL_gb_pump1);
         jL_gb_pump1.setBounds(660, 220, 60, 60);
 
@@ -418,7 +414,7 @@ public class MainForm extends javax.swing.JFrame {
         jL_cc_rh.setForeground(new java.awt.Color(255, 153, 0));
         jL_cc_rh.setText("0");
         jPanel1.add(jL_cc_rh);
-        jL_cc_rh.setBounds(210, 560, 40, 32);
+        jL_cc_rh.setBounds(70, 560, 40, 32);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/led-display.jpg"))); // NOI18N
         jPanel1.add(jLabel2);
@@ -473,7 +469,7 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/led-display.jpg"))); // NOI18N
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(200, 510, 100, 90);
+        jLabel9.setBounds(60, 510, 100, 90);
 
         jL_1000_rh.setFont(new java.awt.Font("Mon Crystal", 1, 24)); // NOI18N
         jL_1000_rh.setForeground(new java.awt.Color(255, 153, 0));
@@ -498,7 +494,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel12.setBounds(60, 10, 40, 30);
 
         jPanel1.add(jP_cc);
-        jP_cc.setBounds(200, 460, 100, 50);
+        jP_cc.setBounds(60, 440, 100, 50);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("УСАН САН 1");
@@ -535,10 +531,14 @@ public class MainForm extends javax.swing.JFrame {
         jPanel1.add(jLabel15);
         jLabel15.setBounds(20, 10, 96, 100);
 
+        jL_underpump0.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/under_all_pumps_run.png"))); // NOI18N
+        jPanel1.add(jL_underpump0);
+        jL_underpump0.setBounds(160, 210, 330, 600);
+
         jPanel16.setBackground(new java.awt.Color(102, 255, 204));
         jPanel16.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        chkAutoMode.setText("Автомат горим");
+        chkAutoMode.setText("Автомат горим:");
         chkAutoMode.setOpaque(false);
         chkAutoMode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -628,7 +628,7 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        jLAutoPilotStat4.setText("1000 литрийн сан");
+        jLAutoPilotStat4.setText("Усан сан");
 
         jLAutoPilotStat.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLAutoPilotStat.setText("Автомат ажиллагаа:");
@@ -700,7 +700,7 @@ public class MainForm extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel16);
-        jPanel16.setBounds(590, 450, 370, 170);
+        jPanel16.setBounds(540, 460, 370, 170);
 
         jTabbedPane1.addTab("Хяналтын самбар", jPanel1);
 
@@ -768,6 +768,8 @@ public class MainForm extends javax.swing.JFrame {
         jPanel3.add(jPanel4);
         jPanel4.setBounds(140, 10, 490, 150);
 
+        b_denjzalgah1.setBackground(new java.awt.Color(255, 102, 51));
+        b_denjzalgah1.setForeground(new java.awt.Color(204, 51, 0));
         b_denjzalgah1.setText("Дэнж залгах-1");
         b_denjzalgah1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -775,6 +777,8 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        b_denjzalgah2.setBackground(new java.awt.Color(255, 51, 0));
+        b_denjzalgah2.setForeground(new java.awt.Color(204, 51, 0));
         b_denjzalgah2.setText("Дэнж залгах-2");
         b_denjzalgah2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -782,6 +786,8 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        b_denjtaslah.setBackground(new java.awt.Color(0, 204, 51));
+        b_denjtaslah.setForeground(new java.awt.Color(0, 204, 51));
         b_denjtaslah.setText("таслах");
         b_denjtaslah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -793,6 +799,8 @@ public class MainForm extends javax.swing.JFrame {
 
         buttonGroup2.add(jRadioButton4);
 
+        b_gobizalgah1.setBackground(new java.awt.Color(255, 102, 51));
+        b_gobizalgah1.setForeground(new java.awt.Color(204, 51, 0));
         b_gobizalgah1.setText("Говь залгах-1");
         b_gobizalgah1.setPreferredSize(new java.awt.Dimension(107, 23));
         b_gobizalgah1.addActionListener(new java.awt.event.ActionListener() {
@@ -801,6 +809,8 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        b_gobizalgah2.setBackground(new java.awt.Color(255, 51, 0));
+        b_gobizalgah2.setForeground(new java.awt.Color(204, 51, 0));
         b_gobizalgah2.setText("Говь залгах-2");
         b_gobizalgah2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -812,6 +822,8 @@ public class MainForm extends javax.swing.JFrame {
 
         buttonGroup3.add(jRadioButton6);
 
+        b_zeegzalgah2.setBackground(new java.awt.Color(255, 51, 0));
+        b_zeegzalgah2.setForeground(new java.awt.Color(204, 51, 0));
         b_zeegzalgah2.setText("Зээг залгах-2");
         b_zeegzalgah2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -819,6 +831,8 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        b_zeegzalgah1.setBackground(new java.awt.Color(255, 102, 51));
+        b_zeegzalgah1.setForeground(new java.awt.Color(204, 51, 0));
         b_zeegzalgah1.setText("Зээг залгах-1");
         b_zeegzalgah1.setPreferredSize(new java.awt.Dimension(107, 23));
         b_zeegzalgah1.addActionListener(new java.awt.event.ActionListener() {
@@ -827,6 +841,8 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        b_hudagtaslah1.setBackground(new java.awt.Color(0, 204, 51));
+        b_hudagtaslah1.setForeground(new java.awt.Color(0, 204, 51));
         b_hudagtaslah1.setText("Худаг№3 таслах");
         b_hudagtaslah1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -834,6 +850,8 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        b_hudagzalgah1.setBackground(new java.awt.Color(255, 102, 51));
+        b_hudagzalgah1.setForeground(new java.awt.Color(204, 51, 0));
         b_hudagzalgah1.setText("Худаг№3 залгах");
         b_hudagzalgah1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -841,6 +859,8 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        b_hudagtaslah2.setBackground(new java.awt.Color(0, 204, 51));
+        b_hudagtaslah2.setForeground(new java.awt.Color(0, 204, 51));
         b_hudagtaslah2.setText("Худаг№2 таслах");
         b_hudagtaslah2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -848,6 +868,8 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        b_hudagzalgah2.setBackground(new java.awt.Color(255, 102, 51));
+        b_hudagzalgah2.setForeground(new java.awt.Color(204, 51, 0));
         b_hudagzalgah2.setText("Худаг№2 залгах");
         b_hudagzalgah2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -855,6 +877,8 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        b_gobitaslah.setBackground(new java.awt.Color(0, 204, 51));
+        b_gobitaslah.setForeground(new java.awt.Color(0, 204, 51));
         b_gobitaslah.setText("таслах");
         b_gobitaslah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -862,6 +886,8 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        b_zeegtaslah.setBackground(new java.awt.Color(0, 204, 51));
+        b_zeegtaslah.setForeground(new java.awt.Color(0, 204, 51));
         b_zeegtaslah.setText("таслах");
         b_zeegtaslah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1871,6 +1897,9 @@ public class MainForm extends javax.swing.JFrame {
             System.out.println(msg.getInverter());
             if(msg.getInverter()>100){
             setImageLabel(mainForm.jL_pump3,"pump_run_saaral.gif");
+            if("?".equals(msg.getPortb())){
+            setImageLabel(mainForm.jL_underpump0,"under_pump3_run.png");
+            }
             jL_hudag3_tolov.setText("Худаг 3 залгасан.");
             }
             else{
@@ -1907,6 +1936,10 @@ public class MainForm extends javax.swing.JFrame {
                 txt.setText("худаг2 залгасан.");
                 jL_hudag2_tolov.setText("Худаг 2 залгасан.");
                 setImageLabel(mainForm.jL_pump_2,"pump_run_saaral.gif");
+                if(msg.getInverter()<100){
+                    setImageLabel(mainForm.jL_underpump0,"under_pump2_run.png");
+                }
+                
             }
         }
 
@@ -2054,7 +2087,7 @@ public class MainForm extends javax.swing.JFrame {
                 setImageLabel(mainForm.jL_de_pumps, "all1_pumps10_run.png");
                 setImageLabel(mainForm.jL_de_pump1, "Nasos_pump_run.gif");
             }
-            if(">".equals(msg.getPortb()) && msg.getInverter()>100 ){
+            if(";".equals(msg.getPortb()) && msg.getInverter()>100 ){
                 jL_de_tolov.setText("Дэнж насос 2 явж байна.");
                 setImageLabel(mainForm.jL_de_pumps, "all1_pumps20_run.png");
                 setImageLabel(mainForm.jL_de_pump2, "Nasos_pump_run.gif");
@@ -2063,7 +2096,7 @@ public class MainForm extends javax.swing.JFrame {
                 jL_de_tolov.setText("Дэнж насос 1 пускатель залгаатай.");
 
             }
-            if(">".equals(msg.getPortb()) && msg.getInverter()<100 ){
+            if(";".equals(msg.getPortb()) && msg.getInverter()<100 ){
                 jL_de_tolov.setText("Дэнж насос 2 пускатель залгаатай.");
 
             }
