@@ -1512,7 +1512,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="660" y="450" width="280" height="190"/>
+                  <AbsoluteConstraints x="670" y="450" width="280" height="160"/>
                 </Constraint>
               </Constraints>
 
@@ -1555,8 +1555,11 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="chkAutoMode" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLAutoPilotStat" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="chkAutoMode" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jLAutoPilotStat" min="-2" pref="108" max="-2" attributes="0"/>
+                                      </Group>
                                       <Component id="jSeparator1" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1569,10 +1572,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                          <Component id="chkAutoMode" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="5" max="32767" attributes="0"/>
-                          <Component id="jLAutoPilotStat" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="chkAutoMode" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLAutoPilotStat" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="7" max="32767" attributes="0"/>
                           <Component id="jSeparator1" min="-2" pref="2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
