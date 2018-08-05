@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import mn.shand.v2018.msg.ClientMsg;
+import mn.shand.v201807.msg.ClientMsg;
 
 /**
  *

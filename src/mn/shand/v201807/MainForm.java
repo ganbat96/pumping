@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -25,12 +26,13 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.table.AbstractTableModel;
-import mn.shand.v2018.msg.ClientMsg;
-import mn.shand.v2018.msg.DenjMsg;
-import mn.shand.v2018.msg.GobiMsg;
-import mn.shand.v2018.msg.HudagMsg;
-import mn.shand.v2018.msg.MyangaMsg;
-import mn.shand.v2018.msg.ZeegMsg;
+import mn.shand.v201807.msg.ClientMsg;
+import mn.shand.v201807.msg.DenjMsg;
+import mn.shand.v201807.msg.GobiMsg;
+import mn.shand.v201807.msg.HudagMsg;
+import mn.shand.v201807.msg.MyangaMsg;
+import mn.shand.v201807.msg.ZeegMsg;
+import mn.shand.v201807.util.Logger;
 
 /**
  *
@@ -40,6 +42,8 @@ public class MainForm extends javax.swing.JFrame {
 
     private Map<String, Client> clients = new HashMap<>();
     private AutoPilot autoPilot;
+
+    private Map<String, StationReader.Value> stationValues = new ConcurrentHashMap<>();
 
     private boolean gobiRun;
     private boolean denjRun;
@@ -192,6 +196,9 @@ public class MainForm extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -876,6 +883,17 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Станцаас уншсан мэдээллээ шинэчлэх");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane6.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -889,6 +907,41 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(jSeparator4)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(183, 183, 183)
+                                        .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(b_clear))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(196, 196, 196)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jRadioButton5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b_zeegzalgah1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(b_zeegtaslah)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(jRadioButton6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(b_zeegzalgah2))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jRadioButton1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b_denjzalgah1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(b_denjtaslah)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jRadioButton2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(b_denjzalgah2))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(197, 197, 197)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -911,41 +964,11 @@ public class MainForm extends javax.swing.JFrame {
                                         .addGap(12, 12, 12)
                                         .addComponent(b_hudagzalgah1)
                                         .addGap(116, 116, 116)
-                                        .addComponent(b_hudagtaslah1))))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(196, 196, 196)
-                                .addComponent(jRadioButton5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(b_zeegzalgah1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(b_zeegtaslah)
-                                .addGap(26, 26, 26)
-                                .addComponent(jRadioButton6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(b_zeegzalgah2))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(196, 196, 196)
-                                .addComponent(jRadioButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(b_denjzalgah1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(b_denjtaslah)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(b_denjzalgah2))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(183, 183, 183)
-                                        .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(b_clear))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 571, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(b_hudagtaslah1)))
+                                .addGap(123, 123, 123)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton1)
+                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 8, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -961,9 +984,9 @@ public class MainForm extends javax.swing.JFrame {
                             .addComponent(txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(b_clear)))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(b_denjzalgah1)
@@ -985,7 +1008,7 @@ public class MainForm extends javax.swing.JFrame {
                         .addComponent(b_gobizalgah2)))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -996,22 +1019,29 @@ public class MainForm extends javax.swing.JFrame {
                                 .addComponent(b_zeegtaslah)
                                 .addComponent(b_zeegzalgah1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(83, 83, 83)
-                                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(b_hudagzalgah2)
-                                    .addComponent(b_hudagtaslah2)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(b_hudagzalgah1)
                                     .addComponent(b_hudagtaslah1))
-                                .addGap(83, 83, 83))))
+                                .addGap(83, 83, 83))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(83, 83, 83)
+                                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(26, 26, 26)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(b_hudagzalgah2)
+                                            .addComponent(b_hudagtaslah2)))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(34, 34, 34)
+                                        .addComponent(jButton1))))))
                     .addComponent(jRadioButton5))
-                .addGap(147, 147, 147))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
 
         jTabbedPane1.addTab("Удирдлагын самбар", jPanel2);
@@ -1448,6 +1478,17 @@ public class MainForm extends javax.swing.JFrame {
         updateAutoMode();
     }//GEN-LAST:event_chkAutoModeSan2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        StationReader.Value v = stationValues.get("gb");
+        String str = "gobi: " + (v != null ? v.getCreatedAt() + " : " + v.getP11() + " : " + v.getP22() + " : " + v.getD11() + " : " + v.getD22() : "") + "\n";
+        v = stationValues.get("zg");
+        str += "zeeg: " + (v != null ? v.getCreatedAt() + " : " + v.getP11() + " : " + v.getP22() + " : " + v.getD11() + " : " + v.getD22() : "") + "\n";
+        v = stationValues.get("de");
+        str += "denj: " + (v != null ? v.getCreatedAt() + " : " + v.getP11() + " : " + v.getP22() + " : " + v.getD11() + " : " + v.getD22() : "") + "\n";
+
+        jTextArea1.setText(str);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void autoModeChanged() {
         updateAutoMode();
 
@@ -1484,11 +1525,13 @@ public class MainForm extends javax.swing.JFrame {
     });
 
     public void startServer() {
+        // Төхөөрөмжүүдээс мэдээлэл хүлээн авах
         Server server = new Server(this, clients);
         Thread thread = new Thread(server);
         thread.start();
         //timerD.start();
 
+        // Тоолуур
         PumpDataReader dataReader = new PumpDataReader(new UIUpdater(this));
         ScheduledExecutorService ex = Executors.newSingleThreadScheduledExecutor();
         ex.scheduleWithFixedDelay(dataReader, 10, 10, TimeUnit.SECONDS);
@@ -1501,11 +1544,16 @@ public class MainForm extends javax.swing.JFrame {
         pumpSearchStartDate.setText(before.format(DateTimeFormatter.ISO_DATE));
         pumpSearchEndDate.setText(now.format(DateTimeFormatter.ISO_DATE));
 
+        // Автомат горим
         autoPilot = new AutoPilot(new UIUpdater(this), clients);
         autoModeChanged();
 
         ex = Executors.newSingleThreadScheduledExecutor();
         ex.scheduleWithFixedDelay(autoPilot, 10, 10, TimeUnit.SECONDS);
+
+        // Төхөөрөмжүүд (Өргөх станцууд) рүү хандаж мэдээлэл авах
+        ex = Executors.newSingleThreadScheduledExecutor();
+        ex.scheduleWithFixedDelay(new StationReader(stationValues), 10, 10, TimeUnit.SECONDS);
     }
 
     /**
@@ -1605,6 +1653,7 @@ public class MainForm extends javax.swing.JFrame {
     private static javax.swing.JCheckBox chkAutoModeSan2;
     private static javax.swing.JCheckBox chkAutoModeZeeg1;
     private static javax.swing.JCheckBox chkAutoModeZeeg2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLAutoPilotStat;
     private javax.swing.JLabel jLAutoPilotStat1;
     private javax.swing.JLabel jLAutoPilotStat2;
@@ -1714,6 +1763,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -1723,6 +1773,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTablePumpArchive;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jtLogRows;
     private javax.swing.JTable jtPumpLast3;
     private javax.swing.JTable jtPumpLast4;

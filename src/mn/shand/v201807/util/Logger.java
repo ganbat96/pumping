@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mn.shand.v201807;
+package mn.shand.v201807.util;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

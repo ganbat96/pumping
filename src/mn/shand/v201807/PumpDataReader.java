@@ -5,7 +5,6 @@
  */
 package mn.shand.v201807;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.math.BigDecimal;
@@ -13,11 +12,12 @@ import java.math.RoundingMode;
 import java.net.Socket;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
+import mn.shand.v201807.util.HexUtil;
+import mn.shand.v201807.util.Logger;
 
 /**
  *
@@ -47,32 +47,6 @@ public class PumpDataReader implements Runnable {
         this.settings = Settings.load();
     }
 
-    private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
-    public static String bytesToHex(byte[] bytes) {
-        char[] hexChars = new char[bytes.length * 2];
-        for ( int j = 0; j < bytes.length; j++ ) {
-            int v = bytes[j] & 0xFF;
-            hexChars[j * 2] = hexArray[v >>> 4];
-            hexChars[j * 2 + 1] = hexArray[v & 0x0F];
-        }
-        return new String(hexChars);
-    }
-
-    private static void write(OutputStream out, byte[] bytes) throws IOException {
-        out.write(bytes);
-        out.flush();
-    }
-
-    private static long read(InputStream in, int count, int start, int end) throws IOException {
-        byte[] bytes = new byte[count];
-        in.read(bytes);
-
-
-        String hex = bytesToHex(Arrays.copyOfRange(bytes, start, end + 1));
-        return Long.parseLong(hex, 16);
-
-    }
-
     public static PumpData read(String code) {
 
         String[] addr = CLIENT_IP.get(code);
@@ -81,14 +55,14 @@ public class PumpDataReader implements Runnable {
             OutputStream out = socket.getOutputStream();
             InputStream in = socket.getInputStream();) {
 
-            write(out, flowBytes);
-            long flow = read(in, 9, 3, 6);
+            HexUtil.write(out, flowBytes);
+            long flow = HexUtil.readLong(in, 9, 3, 6);
 
-            write(out, wholeBytes);
-            long whole = read(in, 9, 3, 6);
+            HexUtil.write(out, wholeBytes);
+            long whole = HexUtil.readLong(in, 9, 3, 6);
 
-            write(out, fractionBytes);
-            long fraction = read(in, 7, 3, 4);
+            HexUtil.write(out, fractionBytes);
+            long fraction = HexUtil.readLong(in, 7, 3, 4);
 
             PumpData data = new PumpData();
             data.setPumpCode(code);

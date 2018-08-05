@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mn.shand.v2018.msg;
+package mn.shand.v201807.msg;
 
 import java.util.Objects;
 import java.util.StringJoiner;
@@ -13,7 +13,7 @@ import mn.shand.v201807.Log;
  *
  * @author Ganbat Bayarbaatar <ganbat96@gmail.com>
  */
-public class GobiMsg extends ClientMsg {
+public class ZeegMsg extends ClientMsg {
     public static final double maxH1 = 3.0d;
     public static final double maxChange = 0.004d;
 
@@ -27,33 +27,29 @@ public class GobiMsg extends ClientMsg {
     private double inverter;
     private String portb;
 
-    @Override
-    public void process(String[] myBuffer) {
-        temp     = Integer.parseInt(myBuffer[1]);
-        rh       = Integer.parseInt(myBuffer[2]);
-        p1       = 100;
-        p1       = Integer.parseInt(myBuffer[3]);
-        p2       = Integer.parseInt(myBuffer[4]);
-        h1       = Integer.parseInt(myBuffer[5]);
-        dorgio1  = Integer.parseInt(myBuffer[6]);
-        dorgio2  = Integer.parseInt(myBuffer[7]);
-        inverter = Integer.parseInt(myBuffer[8]);
-        portb    = myBuffer[9];
 
-        //temp=temp*150/256-74;
-        //temp=Math.ceil(temp);
+    public void process(String[] messsage) {
+        temp     = Integer.parseInt(messsage[1]);
+        rh       = Integer.parseInt(messsage[2]);
+        p1       = Integer.parseInt(messsage[3]);
+        p2       = Integer.parseInt(messsage[4]);
+        h1       = Integer.parseInt(messsage[5]);
+        dorgio1  = Integer.parseInt(messsage[6]);
+        dorgio2  = Integer.parseInt(messsage[7]);
+        inverter = Integer.parseInt(messsage[8]);
+        portb    = messsage[9];
 
-        //rh=rh*125/256-25;
-        //rh=Math.ceil(rh);
+       // temp = temp * 150 / 256 - 74;
+        //temp = Math.ceil(temp);
+
+       // rh=rh*125/256-25;
+       // rh=Math.ceil(rh);
 
         p1=p1*2/256-0.4;
-        p1=Math.ceil(p1);
-
         p2=p2*2/256-0.4;
-        p2=Math.ceil(p2);
 
         h1=(h1-50.5)*1.4;
-        h1=Math.ceil(h1)/100+0.4;
+        h1=Math.ceil(h1)/100;
     }
 
     @Override
@@ -61,14 +57,14 @@ public class GobiMsg extends ClientMsg {
         Log log = createLog();
         log.setAction("changed");
 
-        GobiMsg gobi = (GobiMsg) last;
+        ZeegMsg zeeg = (ZeegMsg) last;
 
         StringJoiner description = new StringJoiner(" ");
-        if (!Objects.equals(gobi.portb, this.portb)) {
+        if (!Objects.equals(zeeg.portb, this.portb)) {
             description.add("portb = " + portb);
         }
 
-        this.h1 = smoothChange(description, "h1", h1, gobi.h1, maxChange);
+        this.h1 = smoothChange(description, "h1", h1, zeeg.h1, maxChange);
 
         if (description.length() > 0) {
             log.setDescription(description.toString());

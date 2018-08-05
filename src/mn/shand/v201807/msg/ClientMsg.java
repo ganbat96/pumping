@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mn.shand.v2018.msg;
+package mn.shand.v201807.msg;
 
 import java.sql.Timestamp;
 import java.util.StringJoiner;

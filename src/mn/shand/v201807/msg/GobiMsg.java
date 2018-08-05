@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mn.shand.v2018.msg;
+package mn.shand.v201807.msg;
 
 import java.util.Objects;
 import java.util.StringJoiner;
@@ -13,7 +13,7 @@ import mn.shand.v201807.Log;
  *
  * @author Ganbat Bayarbaatar <ganbat96@gmail.com>
  */
-public class DenjMsg extends ClientMsg {
+public class GobiMsg extends ClientMsg {
     public static final double maxH1 = 3.0d;
     public static final double maxChange = 0.004d;
 
@@ -31,6 +31,7 @@ public class DenjMsg extends ClientMsg {
     public void process(String[] myBuffer) {
         temp     = Integer.parseInt(myBuffer[1]);
         rh       = Integer.parseInt(myBuffer[2]);
+        p1       = 100;
         p1       = Integer.parseInt(myBuffer[3]);
         p2       = Integer.parseInt(myBuffer[4]);
         h1       = Integer.parseInt(myBuffer[5]);
@@ -39,8 +40,8 @@ public class DenjMsg extends ClientMsg {
         inverter = Integer.parseInt(myBuffer[8]);
         portb    = myBuffer[9];
 
-        //temp = temp*19.5/32-79;
-        //temp = Math.ceil(temp);
+        //temp=temp*150/256-74;
+        //temp=Math.ceil(temp);
 
         //rh=rh*125/256-25;
         //rh=Math.ceil(rh);
@@ -52,7 +53,7 @@ public class DenjMsg extends ClientMsg {
         p2=Math.ceil(p2);
 
         h1=(h1-50.5)*1.4;
-        h1=Math.ceil(h1)/100;
+        h1=Math.ceil(h1)/100+0.4;
     }
 
     @Override
@@ -60,14 +61,14 @@ public class DenjMsg extends ClientMsg {
         Log log = createLog();
         log.setAction("changed");
 
-        DenjMsg denj = (DenjMsg) last;
+        GobiMsg gobi = (GobiMsg) last;
 
         StringJoiner description = new StringJoiner(" ");
-        if (!Objects.equals(denj.portb, this.portb)) {
+        if (!Objects.equals(gobi.portb, this.portb)) {
             description.add("portb = " + portb);
         }
 
-        this.h1 = smoothChange(description, "h1", h1, denj.h1, maxChange);
+        this.h1 = smoothChange(description, "h1", h1, gobi.h1, maxChange);
 
         if (description.length() > 0) {
             log.setDescription(description.toString());
