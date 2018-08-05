@@ -1982,10 +1982,44 @@ public class MainForm extends javax.swing.JFrame {
         return value1 ? 1 : (value2 ? 2 : 0);
     }
 
+    private void refreshStationValues() {
+        StationReader.Value gobi = stationValues.get("gb");
+        StationReader.Value zeeg = stationValues.get("zg");
+        StationReader.Value denj = stationValues.get("de");
+
+        if (gobi != null) {
+            jL_gb_p1.setText(String.valueOf(gobi.getP11()));
+            jL_gb_p2.setText(String.valueOf(gobi.getP22()));
+            jL_gb_d1.setText(String.valueOf(gobi.getD11()));
+            jL_gb_d2.setText(String.valueOf(gobi.getD22()));
+        }
+
+        if (zeeg != null) {
+            jL_zg_p1.setText(String.valueOf(zeeg.getP11()));
+            jL_zg_p2.setText(String.valueOf(zeeg.getP22()));
+            jL_zg_d1.setText(String.valueOf(zeeg.getD11()));
+            jL_zg_d2.setText(String.valueOf(zeeg.getD22()));
+        }
+
+        if (denj != null) {
+            jL_de_p1.setText(String.valueOf(denj.getP11()));
+            jL_de_p2.setText(String.valueOf(denj.getP22()));
+            jL_de_d1.setText(String.valueOf(denj.getD11()));
+            jL_de_d2.setText(String.valueOf(denj.getD22()));
+        }
+    }
+
     Timer timerD=new Timer(1500, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent ae) {
             sendMessage("de", "z", 1L);//To change body of generated methods, choose Tools | Templates.
+        }
+    });
+
+    Timer timerStation = new Timer(10000, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            refreshStationValues();
         }
     });
 
@@ -2019,6 +2053,7 @@ public class MainForm extends javax.swing.JFrame {
         // Төхөөрөмжүүд (Өргөх станцууд) рүү хандаж мэдээлэл авах
         ex = Executors.newSingleThreadScheduledExecutor();
         ex.scheduleWithFixedDelay(new StationReader(stationValues), 10, 10, TimeUnit.SECONDS);
+        timerStation.start();
     }
 
     /**
