@@ -1,2 +1,3 @@
-off.hours.start=19
+counter.log.hours=8,12,20
+off.hours.start=17
 off.hours.end=22

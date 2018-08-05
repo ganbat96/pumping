@@ -47,7 +47,7 @@ public class MainForm extends javax.swing.JFrame {
     private boolean gobiRun;
     private boolean denjRun;
     private boolean zeegRun;
-
+    private double P1, P2, D1, D2;
     private PumpDataTableModel pump1Model = new PumpDataTableModel(false);
     private PumpDataTableModel pump2Model = new PumpDataTableModel(false);
     private PumpDataTableModel pumpArchiveModel = new PumpDataTableModel(true);
@@ -1379,10 +1379,9 @@ public class MainForm extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(jL_zg_p1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                                                .addComponent(jL_gb_p1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jL_de_p1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addComponent(jL_zg_p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jL_gb_p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jL_de_p1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jLabel85, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(39, 39, 39)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1446,7 +1445,7 @@ public class MainForm extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel87)
                         .addComponent(jLabel88)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(b_denjzalgah1)
                     .addComponent(jRadioButton1)
@@ -1495,7 +1494,7 @@ public class MainForm extends javax.swing.JFrame {
                             .addComponent(jL_zg_d2)
                             .addComponent(jLabel82))
                         .addComponent(jRadioButton6)))
-                .addGap(18, 33, Short.MAX_VALUE)
+                .addGap(18, 42, Short.MAX_VALUE)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1503,7 +1502,7 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(b_hudagtaslah1)
                     .addComponent(jL_cc_p1)
                     .addComponent(jLabel83))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1986,26 +1985,68 @@ public class MainForm extends javax.swing.JFrame {
         StationReader.Value gobi = stationValues.get("gb");
         StationReader.Value zeeg = stationValues.get("zg");
         StationReader.Value denj = stationValues.get("de");
-
+        // Энд даралт, доргиогийн утгыг солино
+        
         if (gobi != null) {
-            jL_gb_p1.setText(String.valueOf(gobi.getP11()));
-            jL_gb_p2.setText(String.valueOf(gobi.getP22()));
-            jL_gb_d1.setText(String.valueOf(gobi.getD11()));
-            jL_gb_d2.setText(String.valueOf(gobi.getD22()));
+            P1 = Integer.valueOf(gobi.getP11());
+            P1=(P1-100)*0.04;
+            if(P1<0){P1=0;}           
+            jL_gb_p1.setText(String.format("%.1f",P1));  
+            P2 = Integer.valueOf(gobi.getP22());
+            P2=(P2-100)*0.04;
+            if(P2<0){P2=0;}
+            jL_gb_p2.setText(String.format("%.1f",P2));
+            D1 = Integer.valueOf(gobi.getD11());
+            D1=(D1-100)*0.125;
+            if(D1<0){D1=0;}
+            jL_gb_d1.setText(String.format("%.1f",D1));          
+            D2 = Integer.valueOf(gobi.getD22());
+            D2=(D2-100)*0.125;
+            if(D2<0){D2=0;}
+            jL_gb_d2.setText(String.format("%.1f",D2));
+            
         }
 
         if (zeeg != null) {
-            jL_zg_p1.setText(String.valueOf(zeeg.getP11()));
-            jL_zg_p2.setText(String.valueOf(zeeg.getP22()));
-            jL_zg_d1.setText(String.valueOf(zeeg.getD11()));
-            jL_zg_d2.setText(String.valueOf(zeeg.getD22()));
+            P1 = Integer.valueOf(zeeg.getP11());
+            P1=(P1-100)*0.04;
+            if(P1<0){P1=0;}
+            jL_zg_p1.setText(String.format("%.1f",P1));
+            P2 = Integer.valueOf(zeeg.getP22());
+            P2=(P2-100)*0.04;
+            if(P2<0){P2=0;}
+            jL_zg_p2.setText(String.format("%.1f",P2));
+            D1 = Integer.valueOf(zeeg.getD11());
+            D1=(D1-100)*0.125;
+            if(D1<0){D1=0;}
+            jL_zg_d1.setText(String.format("%.1f",D1));
+            D2 = Integer.valueOf(zeeg.getD22());
+            D2=(D2-100)*0.125;
+            if(D2<0){D2=0;}
+            jL_zg_d2.setText(String.format("%.1f",D2));
         }
 
         if (denj != null) {
-            jL_de_p1.setText(String.valueOf(denj.getP11()));
-            jL_de_p2.setText(String.valueOf(denj.getP22()));
-            jL_de_d1.setText(String.valueOf(denj.getD11()));
-            jL_de_d2.setText(String.valueOf(denj.getD22()));
+            //jL_de_p1.setText(String.valueOf(denj.getP11()));
+            //jL_de_p2.setText(String.valueOf(denj.getP22()));
+            //jL_de_d1.setText(String.valueOf(denj.getD11()));
+            //jL_de_d2.setText(String.valueOf(denj.getD22()));
+            P1 = Integer.valueOf(denj.getP11());
+            P1=(P1-100)*0.04;
+            if(P1<0){P1=0;}
+            jL_de_p1.setText(String.format("%.1f",P1));
+            P2 = Integer.valueOf(denj.getP22());
+            P2=(P2-100)*0.04;
+            if(P2<0){P2=0;}
+            jL_de_p2.setText(String.format("%.1f",P2));
+            D1 = Integer.valueOf(denj.getD11());
+            D1=(D1-100)*0.125;
+            if(D1<0){D1=0;}
+            jL_de_d1.setText(String.format("%.1f",D1));
+            D2 = Integer.valueOf(denj.getD22());
+            D2=(D2-100)*0.125;
+            if(D2<0){D2=0;}
+            jL_de_d2.setText(String.format("%.1f",D2));
         }
     }
 
@@ -2085,7 +2126,6 @@ public class MainForm extends javax.swing.JFrame {
                 MainForm form = new MainForm();
                 form.startServer();
                 form.setVisible(true);
-
 
             }
         });

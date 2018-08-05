@@ -39,8 +39,8 @@ public class HudagMsg extends ClientMsg {
         //rh = rh * 125 / 256 - 25;
         //rh = Math.ceil(rh);
 
-        p1 = p1 * 2 / 256 - 0.4;
-        p1 = Math.ceil(p1);
+        //p1 = p1 * 2 / 256 - 0.4;
+        //p1 = Math.ceil(p1);
     }
 
     @Override
