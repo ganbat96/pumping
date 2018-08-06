@@ -54,6 +54,10 @@ public class GobiMsg extends ClientMsg {
 
         h1=(h1-50.5)*1.4;
         h1=Math.ceil(h1)/100+0.4;
+        
+        if(inverter < 10){inverter =0;}
+        //inverter=2900/inverter;
+        //inverter=Math.ceil(inverter);
     }
 
     @Override
