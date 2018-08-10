@@ -37,7 +37,7 @@ public abstract class ClientMsg {
 
     public static ClientMsg process(String message) {
         message = message.trim();
-        String[] tokens = message.split(":");
+        String[] tokens = message.split("(\\s|:)+");
 
         ClientMsg stat = create(tokens[0]);
         if (stat == null) {
