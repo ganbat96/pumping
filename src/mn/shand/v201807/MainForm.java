@@ -2055,11 +2055,11 @@ public class MainForm extends javax.swing.JFrame {
             D1 = Integer.valueOf(zeeg.getD11());
             D1=(D1-100)*0.125;
             if(D1<0){D1=0;}
-            jL_zg_d1.setText(String.format("%.1f",D1));
+            jL_zg_d2.setText(String.format("%.1f",D1));
             D2 = Integer.valueOf(zeeg.getD22());
             D2=(D2-100)*0.125;
             if(D2<0){D2=0;}
-            jL_zg_d2.setText(String.format("%.1f",D2));
+            jL_zg_d1.setText(String.format("%.1f",D2));
         }
 
         if (denj != null) {
@@ -2105,7 +2105,7 @@ public class MainForm extends javax.swing.JFrame {
         Server server = new Server(this, clients);
         Thread thread = new Thread(server);
         thread.start();
-        timerD.start();
+        //timerD.start();
 
         // Тоолуур
         PumpDataReader dataReader = new PumpDataReader(new UIUpdater(this));
