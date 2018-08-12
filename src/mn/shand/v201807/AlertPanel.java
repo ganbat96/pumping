@@ -76,7 +76,7 @@ public class AlertPanel extends javax.swing.JPanel {
                 case 0 : return "Төхөөрөмж";
                 case 1 : return "Үзүүлэлт";
                 case 2 : return "Одоогийн утга";
-                case 3 : return "Байх ёстой утга";
+                case 3 : return "Анхааруулга өгөх нөхцөл";
             }
 
             return "col" + col;

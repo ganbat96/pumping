@@ -942,9 +942,10 @@ public class MainForm extends javax.swing.JFrame {
         jPanel1.add(jLabel52);
         jLabel52.setBounds(530, 550, 80, 14);
 
+        jl_alarm1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jl_alarm1.setText("Хэвийн ");
         jPanel1.add(jl_alarm1);
-        jl_alarm1.setBounds(590, 570, 40, 14);
+        jl_alarm1.setBounds(530, 570, 100, 30);
 
         jTabbedPane1.addTab("Хяналтын самбар", jPanel1);
 

@@ -1818,6 +1818,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jl_alarm1">
               <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
                 <Property name="text" type="java.lang.String" value="&#x425;&#x44d;&#x432;&#x438;&#x439;&#x43d; "/>
               </Properties>
               <AuxValues>
@@ -1825,7 +1826,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="590" y="570" width="40" height="-1"/>
+                  <AbsoluteConstraints x="530" y="570" width="100" height="30"/>
                 </Constraint>
               </Constraints>
             </Component>

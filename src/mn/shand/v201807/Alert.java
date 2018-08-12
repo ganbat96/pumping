@@ -27,8 +27,8 @@ public class Alert {
         alertItems.add(new Item(new String[] {"de", "gb", "zg", "cc", "bb"}, "temp", "<",  5d));
         alertItems.add(new Item(new String[] {"de", "gb", "zg", "cc", "bb"}, "temp", ">", 50d));
 
-        alertItems.add(new Item(new String[] {"myng"},                       "temp", "<", 127d));
-        alertItems.add(new Item(new String[] {"myng"},                       "temp", ">", 213d));
+        alertItems.add(new Item(new String[] {"myng"},                       "temp", "<", 5d));
+        alertItems.add(new Item(new String[] {"myng"},                       "temp", ">", 80d));
 
         alertItems.add(new Item(new String[] {"de", "gb", "zg", "cc", "bb"}, "rh", ">",  80d));
         alertItems.add(new Item(new String[] {"myng"},                       "rh", ">", 220d));
@@ -46,7 +46,7 @@ public class Alert {
 
         alertItems.add(new Item(new String[] {"de", "gb", "zg"},             "smoke", "in", Arrays.asList("<", ">", ":")));
         alertItems.add(new Item(new String[] {"cc", "bb"},                   "smoke", "in", Arrays.asList("<", "=")));
-        alertItems.add(new Item(new String[] {"myng"},                       "smoke", "<",  100));
+        alertItems.add(new Item(new String[] {"myng"},                       "smoke", "<",  100d));
     }
 
     private Map<String, StationReader.Value> stationValues;
@@ -102,17 +102,34 @@ public class Alert {
         resultList.add(r);
     }
 
+    
     private boolean check(Item item, Object value) {
         switch (item.operator) {
             case "="  : return Objects.equals(value, item.value);
-            case ">"  : return ((double) value) > ((double) item.value);
-            case "<"  : return ((double) value) < ((double) item.value);
-            case ">=" : return ((double) value) >= ((double) item.value);
-            case "<=" : return ((double) value) <= ((double) item.value);
+            case ">"  : return doubleValue(value) >  doubleValue(item.value);
+            case "<"  : return doubleValue(value) <  doubleValue(item.value);
+            case ">=" : return doubleValue(value) >= doubleValue(item.value);
+            case "<=" : return doubleValue(value) <= doubleValue(item.value);
             case "in" : ((List) item.value).contains(value);
         }
 
         return false;
+    }
+
+    private double doubleValue(Object value) {
+        if (value instanceof Double) {
+            return (Double) value;
+        }   
+        
+        if (value instanceof Integer) {
+            return (double) ((Integer) value).intValue();
+        }
+        
+        if (value instanceof String) {
+            return Double.parseDouble((String) value);
+        }
+        
+        throw new RuntimeException("Can not conver "  + value + " to double");
     }
 
     private Double getTemp(String code) {
@@ -197,7 +214,11 @@ public class Alert {
                 case "de" : return ((DenjMsg)  msg).getPortb();
                 case "gb" : return ((GobiMsg)  msg).getPortb();
                 case "zg" : return ((ZeegMsg)  msg).getPortb();
-                case "myng" : return ((MyangaMsg)  msg).getSmoke();
+                case "myng" : 
+                    int smoke = ((MyangaMsg) msg).getSmoke();
+                    if (smoke != 0) {
+                        return smoke;
+                    }
             }
         }
 
