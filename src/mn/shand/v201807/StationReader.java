@@ -89,8 +89,41 @@ public class StationReader implements Runnable {
 
         private Timestamp createdAt;
 
+        public Value() {
+        }
+
+        public Value(String value) {
+            String[] parts = value.split("_");
+            code = parts[0];
+            p11  = Integer.parseInt(parts[1]);
+            p22  = Integer.parseInt(parts[2]);
+            d11  = Integer.parseInt(parts[3]);
+            d22  = Integer.parseInt(parts[4]);
+        }
+
         public String toString() {
-            return "p11=" + p11 + ", p22=" + p22 + ", d11=" + d11 + ", d22=" + d22 + ", time=" + createdAt;
+            return code + "_" + p11 + "_" + p22 + "_" + d11 + "_" + d22;
+        }
+
+        private static double adj(int value, double sub, double mul) {
+            double p = (value - sub) * mul;
+            return p > 0 ? p : 0;
+        }
+
+        public double getAdjP1() {
+            return adj(p11, 100d, 0.04d);
+        }
+
+        public double getAdjP2() {
+            return adj(p22, 100d, 0.04d);
+        }
+
+        public double getAdjD1() {
+            return adj(d11, 100d, 0.125d);
+        }
+
+        public double getAdjD2() {
+            return adj(d22, 100d, 0.125d);
         }
 
         public String getCode() {

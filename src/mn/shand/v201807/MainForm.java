@@ -47,8 +47,7 @@ public class MainForm extends javax.swing.JFrame {
     private boolean gobiRun;
     private boolean denjRun;
     private boolean zeegRun;
-    
-    private double P1, P2, D1, D2;
+
     private PumpDataTableModel pump1Model = new PumpDataTableModel(false);
     private PumpDataTableModel pump2Model = new PumpDataTableModel(false);
     private PumpDataTableModel pumpArchiveModel = new PumpDataTableModel(true);
@@ -304,6 +303,10 @@ public class MainForm extends javax.swing.JFrame {
         logTable = new javax.swing.JTable();
         jPanel17 = new javax.swing.JPanel();
         settingsPanel1 = new mn.shand.v201807.SettingsPanel();
+        jPanel19 = new javax.swing.JPanel();
+        measurementPanel1 = new mn.shand.v201807.MeasurementPanel();
+        jPanel20 = new javax.swing.JPanel();
+        alertPanel1 = new mn.shand.v201807.AlertPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("САЙНШАНД-УС ХАНГАМЖ-2018");
@@ -453,10 +456,8 @@ public class MainForm extends javax.swing.JFrame {
         jLabel50.setText("ГХ 1");
         jPanel18.add(jLabel50);
         jLabel50.setBounds(60, 20, 31, 17);
-
-        jLabel51.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tele\\Documents\\NetBeansProjects\\pumping\\src\\image\\network_off_jijig.png")); // NOI18N
         jPanel18.add(jLabel51);
-        jLabel51.setBounds(10, 10, 41, 34);
+        jLabel51.setBounds(10, 10, 41, 0);
 
         jPanel1.add(jPanel18);
         jPanel18.setBounds(340, 440, 100, 50);
@@ -1774,6 +1775,16 @@ public class MainForm extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Тохиргоо", jPanel17);
 
+        jPanel19.setLayout(new java.awt.BorderLayout());
+        jPanel19.add(measurementPanel1, java.awt.BorderLayout.CENTER);
+
+        jTabbedPane1.addTab("Төвшингийн лог", jPanel19);
+
+        jPanel20.setLayout(new java.awt.BorderLayout());
+        jPanel20.add(alertPanel1, java.awt.BorderLayout.CENTER);
+
+        jTabbedPane1.addTab("Анхааруулга", jPanel20);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1992,8 +2003,8 @@ public class MainForm extends javax.swing.JFrame {
     private void autoModeChanged() {
         updateAutoMode();
 
-        chkAutoModeSan1.setEnabled(chkAutoMode.isSelected());
-        chkAutoModeSan2.setEnabled(chkAutoMode.isSelected());
+//        chkAutoModeSan1.setEnabled(chkAutoMode.isSelected());
+//        chkAutoModeSan2.setEnabled(chkAutoMode.isSelected());
         chkAutoModeZeeg1.setEnabled(chkAutoMode.isSelected());
         chkAutoModeZeeg2.setEnabled(chkAutoMode.isSelected());
         chkAutoModeGobi1.setEnabled(chkAutoMode.isSelected());
@@ -2017,81 +2028,51 @@ public class MainForm extends javax.swing.JFrame {
         return value1 ? 1 : (value2 ? 2 : 0);
     }
 
+    private void refreshStationValues(javax.swing.JLabel label, double value) {
+        label.setText(String.format("%.1f", value));
+    }
+
     private void refreshStationValues() {
         StationReader.Value gobi = stationValues.get("gb");
         StationReader.Value zeeg = stationValues.get("zg");
         StationReader.Value denj = stationValues.get("de");
+
         // Энд даралт, доргиогийн утгыг солино
-        
         if (gobi != null) {
-            P1 = Integer.valueOf(gobi.getP11());
-            P1=(P1-100)*0.04;
-            if(P1<0){P1=0;}           
-            jL_gb_p1.setText(String.format("%.1f",P1));  
-            P2 = Integer.valueOf(gobi.getP22());
-            P2=(P2-100)*0.04;
-            if(P2<0){P2=0;}
-            jL_gb_p2.setText(String.format("%.1f",P2));
-            D1 = Integer.valueOf(gobi.getD11());
-            D1=(D1-100)*0.125;
-            if(D1<0){D1=0;}
-            jL_gb_d1.setText(String.format("%.1f",D1));          
-            D2 = Integer.valueOf(gobi.getD22());
-            D2=(D2-100)*0.125;
-            if(D2<0){D2=0;}
-            jL_gb_d2.setText(String.format("%.1f",D2));
-            
+            refreshStationValues(jL_gb_p1, gobi.getAdjP1());
+            refreshStationValues(jL_gb_p2, gobi.getAdjP2());
+            refreshStationValues(jL_gb_d1, gobi.getAdjD1());
+            refreshStationValues(jL_gb_d2, gobi.getAdjD2());
         }
 
         if (zeeg != null) {
-            P1 = Integer.valueOf(zeeg.getP11());
-            P1=(P1-100)*0.04;
-            if(P1<0){P1=0;}
-            jL_zg_p1.setText(String.format("%.1f",P1));
-            P2 = Integer.valueOf(zeeg.getP22());
-            P2=(P2-100)*0.04;
-            if(P2<0){P2=0;}
-            jL_zg_p2.setText(String.format("%.1f",P2));
-            D1 = Integer.valueOf(zeeg.getD11());
-            D1=(D1-100)*0.125;
-            if(D1<0){D1=0;}
-            jL_zg_d2.setText(String.format("%.1f",D1));
-            D2 = Integer.valueOf(zeeg.getD22());
-            D2=(D2-100)*0.125;
-            if(D2<0){D2=0;}
-            jL_zg_d1.setText(String.format("%.1f",D2));
+            refreshStationValues(jL_zg_p1, zeeg.getAdjP1());
+            refreshStationValues(jL_zg_p2, zeeg.getAdjP2());
+            refreshStationValues(jL_zg_d1, zeeg.getAdjD1());
+            refreshStationValues(jL_zg_d2, zeeg.getAdjD2());
         }
 
         if (denj != null) {
-            //jL_de_p1.setText(String.valueOf(denj.getP11()));
-            //jL_de_p2.setText(String.valueOf(denj.getP22()));
-            //jL_de_d1.setText(String.valueOf(denj.getD11()));
-            //jL_de_d2.setText(String.valueOf(denj.getD22()));
-            P1 = Integer.valueOf(denj.getP11());
-            P1=(P1-100)*0.04;
-            if(P1<0){P1=0;}
-            jL_de_p1.setText(String.format("%.1f",P1));
-            P2 = Integer.valueOf(denj.getP22());
-            P2=(P2-100)*0.04;
-            if(P2<0){P2=0;}
-            jL_de_p2.setText(String.format("%.1f",P2));
-            D1 = Integer.valueOf(denj.getD11());
-            D1=(D1-100)*0.125;
-            if(D1<0){D1=0;}
-            jL_de_d1.setText(String.format("%.1f",D1));
-            D2 = Integer.valueOf(denj.getD22());
-            D2=(D2-100)*0.125;
-            if(D2<0){D2=0;}
-            jL_de_d2.setText(String.format("%.1f",D2));
+            refreshStationValues(jL_de_p1, denj.getAdjP1());
+            refreshStationValues(jL_de_p2, denj.getAdjP2());
+            refreshStationValues(jL_de_d1, denj.getAdjD1());
+            refreshStationValues(jL_de_d2, denj.getAdjD2());
         }
     }
 
-    Timer timerD=new Timer(1500, new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent ae) {
-            sendMessage("de", "z", 1L);//To change body of generated methods, choose Tools | Templates.
+    private void refreshAlert() {
+        Alert alert = new Alert(stationValues);
+        List<Alert.Result> results = alert.check();
+        alertPanel1.refresh(results);
+
+        if (results.isEmpty()) {
+            jl_alarm1.setText("Хэвийн");
+            jL_alarm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Alarm_off.gif")));
+        } else {
+            jl_alarm1.setText(results.size() + " анхааруулга илэрлээ");
+            jL_alarm.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Alarm_on.gif")));
         }
-    });
+    }
 
     Timer timerStation = new Timer(20000, new ActionListener() {
         @Override
@@ -2100,12 +2081,18 @@ public class MainForm extends javax.swing.JFrame {
         }
     });
 
+    Timer timerAlert = new Timer(10000, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            refreshAlert();
+        }
+    });
+
     public void startServer() {
         // Төхөөрөмжүүдээс мэдээлэл хүлээн авах
         Server server = new Server(this, clients);
         Thread thread = new Thread(server);
         thread.start();
-        //timerD.start();
 
         // Тоолуур
         PumpDataReader dataReader = new PumpDataReader(new UIUpdater(this));
@@ -2130,7 +2117,17 @@ public class MainForm extends javax.swing.JFrame {
         // Төхөөрөмжүүд (Өргөх станцууд) рүү хандаж мэдээлэл авах
         ex = Executors.newSingleThreadScheduledExecutor();
         ex.scheduleWithFixedDelay(new StationReader(stationValues), 10, 10, TimeUnit.SECONDS);
+
+        // Refresh төхөөрөмжүүд
         timerStation.start();
+
+        // Төвшингийн мэдээллийг лог хийх
+        ex = Executors.newSingleThreadScheduledExecutor();
+        ex.scheduleWithFixedDelay(new MeasureLog(), 1, 1, TimeUnit.MINUTES);
+
+
+        // Алерт
+        timerAlert.start();
     }
 
     /**
@@ -2165,8 +2162,6 @@ public class MainForm extends javax.swing.JFrame {
 
             }
         });
-
-
     }
 
     public void tellEveryone(String msg) {
@@ -2196,6 +2191,7 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private mn.shand.v201807.AlertPanel alertPanel1;
     private javax.swing.ButtonGroup autoModeSelectDenj;
     private javax.swing.ButtonGroup autoModeSelectGobi;
     private javax.swing.ButtonGroup autoModeSelectTank;
@@ -2386,7 +2382,9 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private static javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2422,6 +2420,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JTable jtPumpLast4;
     private javax.swing.JButton logSearchBtn;
     private javax.swing.JTable logTable;
+    private mn.shand.v201807.MeasurementPanel measurementPanel1;
     private javax.swing.JButton pumpSearchBtn;
     private javax.swing.JTextField pumpSearchEndDate;
     private javax.swing.JTextField pumpSearchStartDate;
@@ -2483,7 +2482,7 @@ public class MainForm extends javax.swing.JFrame {
 
         private int zeegCnt;
         private int gobiCnt;
-        
+
         private boolean smokehudag1=false;
         private boolean smokehudag2=false;
         private boolean smokezeeg=false;
@@ -2572,7 +2571,7 @@ public class MainForm extends javax.swing.JFrame {
             }
             if("<".equals(msg.getPortb())){msg.setPortb(">");smokehudag1=true;}else{smokehudag1=false;}
             if("=".equals(msg.getPortb())){msg.setPortb("?");smokehudag1=true;}else{smokehudag1=false;}
-            
+
             System.out.println(msg.getInverter());
             if(msg.getInverter()>100){
             setImageLabel(mainForm.jL_pump3,"pump_run_saaral.gif");
@@ -2609,10 +2608,10 @@ public class MainForm extends javax.swing.JFrame {
 
             jL_bb_temp.setText( String.format("%.1f", msg.getTemp()));
             jL_bb_rh.setText(   String.format("%.0f", msg.getRh()));
-          
+
             if("<".equals(msg.getPortb())){msg.setPortb(">");smokehudag2=true;}else{smokehudag2=false;}
             if("=".equals(msg.getPortb())){msg.setPortb("?");smokehudag2=true;}else{smokehudag2=false;}
-            
+
             if ("?".equals(msg.getPortb())) {
                 System.out.println(msg.getPortb());
                 txt.setText("худаг2 салгасан.");
@@ -2654,7 +2653,7 @@ public class MainForm extends javax.swing.JFrame {
                if(">".equals(msg.getPortb())){msg.setPortb("?");smokezeeg=true;}else{smokezeeg=false;}
                if("<".equals(msg.getPortb())){msg.setPortb("=");smokezeeg=true;}else{smokezeeg=false;}
                if(":".equals(msg.getPortb())){msg.setPortb(";");smokezeeg=true;}else{smokezeeg=false;}
-               
+
             if("?".equals(msg.getPortb()) || msg.getInverter()<100){
                 jL_zg_tolov.setText("Зээг зогсож байна.");
                 setImageLabel(mainForm.jL_zg_pumps, "all1_pumps_stop.png");
@@ -2715,11 +2714,11 @@ public class MainForm extends javax.swing.JFrame {
                 stopImage(mainForm.jL_gb_network, mainForm.jP_gobi);
                 return;
             }
-            
+
                 if(">".equals(msg.getPortb())){msg.setPortb("?");smokegobi=true;}else{smokegobi=false;}
                if("<".equals(msg.getPortb())){msg.setPortb("=");smokegobi=true;}else{smokegobi=false;}
                if(":".equals(msg.getPortb())){msg.setPortb(";");smokegobi=true;}else{smokegobi=false;}
-            
+
             if("?".equals(msg.getPortb()) || msg.getInverter()<100){
                 jL_gb_tolov.setText("Говь зогсож байна.");
                 setImageLabel(mainForm.jL_gb_pumps, "all1_pumps_stop.png");
@@ -2786,7 +2785,7 @@ public class MainForm extends javax.swing.JFrame {
                if("<".equals(msg.getPortb())){msg.setPortb("=");smokedenj=true;}else{smokedenj=false;}
                if(":".equals(msg.getPortb())){msg.setPortb(";");smokedenj=true;}else{smokedenj=false;}
                if(smokedenj){jl_alarm1.setText("Дэнж утаа илрэв.");}
-            
+
             if("?".equals(msg.getPortb()) || msg.getInverter()<100){
                 jL_de_tolov.setText("Дэнж зогсож байна.");
                 setImageLabel(mainForm.jL_de_pumps, "all1_pumps0_stop.png");

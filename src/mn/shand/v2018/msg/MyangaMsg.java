@@ -23,6 +23,7 @@ public class MyangaMsg extends ClientMsg {
     private double rh;
     private double h1;
     private double h2;
+    private int    smoke;
     private String portb;
 
     public void process(String[] myBuffer) {
@@ -30,6 +31,7 @@ public class MyangaMsg extends ClientMsg {
         rh   = Integer.parseInt(myBuffer[2]);
         h1   = Integer.parseInt(myBuffer[4]);
         h2   = Integer.parseInt(myBuffer[5]);
+        smoke= Integer.parseInt(myBuffer[6]);
 
         temp=temp*19.5/32-79;
         temp=Math.ceil(temp);
@@ -125,6 +127,14 @@ public class MyangaMsg extends ClientMsg {
 
     public void setPortb(String portb) {
         this.portb = portb;
+    }
+
+    public int getSmoke() {
+        return smoke;
+    }
+
+    public void setSmoke(int smoke) {
+        this.smoke = smoke;
     }
 
 }
