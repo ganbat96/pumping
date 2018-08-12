@@ -69,7 +69,10 @@ public class GobiMsg extends ClientMsg {
 
         StringJoiner description = new StringJoiner(" ");
         if (!Objects.equals(gobi.portb, this.portb)) {
-            description.add("portb = " + portb);
+            if (!"gb".equals(gobi.portb) &&
+                !"gb".equals(this.portb)) {
+                description.add("portb = " + portb);
+            }
         }
 
         this.h1 = smoothChange(description, "h1", h1, gobi.h1, maxChange);
