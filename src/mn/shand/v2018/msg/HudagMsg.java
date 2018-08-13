@@ -6,6 +6,7 @@
 package mn.shand.v2018.msg;
 
 import java.util.Objects;
+import java.util.StringJoiner;
 import mn.shand.v201807.Log;
 
 /**
@@ -49,8 +50,17 @@ public class HudagMsg extends ClientMsg {
         log.setAction("changed");
 
         HudagMsg hudag = (HudagMsg) last;
+
+        StringJoiner description = new StringJoiner(" ");
         if (!Objects.equals(hudag.portb, this.portb)) {
-            log.setDescription("portb = " + portb);
+            description.add("portb = " + portb);
+        }
+
+        this.inverter = smoothChange(description, "inverter", inverter, hudag.inverter, maxInverterChange);
+        this.p1 = smoothChange(description, "p1", p1, hudag.p1, maxPressureChange);
+
+        if (description.length() > 0) {
+            log.setDescription(description.toString());
             return log;
         }
 

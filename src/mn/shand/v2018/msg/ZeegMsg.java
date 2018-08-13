@@ -50,7 +50,7 @@ public class ZeegMsg extends ClientMsg {
 
         h1=(h1-50.5)*1.4;
         h1=Math.ceil(h1)/100;
-        
+
         if(inverter < 10){inverter =0;}
        // inverter=2900/inverter;
        // inverter=Math.ceil(inverter);
@@ -69,6 +69,7 @@ public class ZeegMsg extends ClientMsg {
         }
 
         this.h1 = smoothChange(description, "h1", h1, zeeg.h1, maxChange);
+        this.inverter = smoothChange(description, "inverter", inverter, zeeg.inverter, maxInverterChange);
 
         if (description.length() > 0) {
             log.setDescription(description.toString());

@@ -76,6 +76,7 @@ public class GobiMsg extends ClientMsg {
         }
 
         this.h1 = smoothChange(description, "h1", h1, gobi.h1, maxChange);
+        this.inverter = smoothChange(description, "inverter", inverter, gobi.inverter, maxInverterChange);
 
         if (description.length() > 0) {
             log.setDescription(description.toString());

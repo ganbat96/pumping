@@ -18,6 +18,9 @@ public abstract class ClientMsg {
     public static final int TYPE_STOP   = 1;
     public static final int TYPE_STATUS = 2;
 
+    public static final double maxInverterChange = 2.0d;
+    public static final double maxPressureChange = 1.0d;
+
     protected String code;
     protected int type;  // start, end, status
 

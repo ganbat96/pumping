@@ -17,6 +17,7 @@ public class DenjMsg extends ClientMsg {
     public static final double maxH1 = 3.0d;
     public static final double maxChange = 0.004d;
 
+
     private double temp;
     private double rh;
     private double p1;
@@ -72,6 +73,7 @@ public class DenjMsg extends ClientMsg {
         }
 
         this.h1 = smoothChange(description, "h1", h1, denj.h1, maxChange);
+        this.inverter = smoothChange(description, "inverter", inverter, denj.inverter, maxInverterChange);
 
         if (description.length() > 0) {
             log.setDescription(description.toString());
