@@ -37,7 +37,7 @@ public class Alert {
         alertItems.add(new Item(new String[] {"de", "gb", "zg"},             "h",  ">", 3.1d));
 
         alertItems.add(new Item(new String[] {"myng"},                       "hh", "<", 0.8d));
-        alertItems.add(new Item(new String[] {"myng"},                       "hh", ">", 3.16d));
+        alertItems.add(new Item(new String[] {"myng"},                       "hh", ">", 3.25d));
 
         alertItems.add(new Item(new String[] {"de", "gb", "zg"},             "pp", ">", 353d));
         alertItems.add(new Item(new String[] {"cc", "bb"},                   "p",  ">", 178d));
